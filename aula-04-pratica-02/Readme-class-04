@@ -1,0 +1,112 @@
+# Classificação Automática de Reclamações com LLM
+
+Atividade da **Aula 04 – Prática 02 – Semana 2** do AI Talent Academy.
+
+Uso de um modelo de linguagem via API para classificar reclamações de clientes de
+telecom em categorias pré-definidas, sem treinar nenhum modelo — só engenharia de prompt.
+
+**Grupo 01:** Breno Luna · Ricardo Lima · Paula Carlesso
+
+---
+
+## O que tem aqui
+
+| Parte | O que faz |
+|---|---|
+| Tokenização | Usa `tiktoken` para mostrar como o modelo enxerga o texto — IDs de token e divisão visual |
+| Experimento 1 | Análise de sentimento em reviews do dataset B2W-Reviews01 |
+| Experimento 2 | Agrupamento de reclamações em tópicos |
+| **Exercício** | Função `classificar_reclamacao` — classifica reclamações em 14 categorias |
+| Avaliação | Batch de 5 casos comparando a previsão com o gabarito, com cálculo de acurácia |
+| Reflexão | Análise dos resultados: erros, alucinação, temperatura, próximos passos |
+
+## Dados
+
+- **B2W-Reviews01** — corpus aberto com 132.373 avaliações de e-commerce (usado nos experimentos)
+- **Planilha de reclamações de telecom** — 7.000 registros com `title` e `description`,
+  mais uma aba de referência com as 14 categorias mapeadas pela empresa
+
+As categorias: Cobrança indevida · Planos e tarifas · Cancelamento · Portabilidade ·
+Corte indevido da linha · Mudança de plano · Mau atendimento do prestador de serviço ·
+Consumo de crédito · Problemas com o chip · Promoções · Qualidade da internet ·
+Problema com recarga · Demora na execução · Instabilidade do sinal
+
+## Como rodar
+
+O notebook foi feito para o Google Colab.
+
+1. Abra `Aula_04_Pratica_02_Semana_2.ipynb` no Colab
+2. Cadastre sua chave da API da NVIDIA nos **Secrets** (ícone 🔑), com o nome exato
+   `NVD_API_KEY`, e ligue o acesso ao notebook
+3. `Ambiente de execução → Executar tudo`
+
+A chave é gerada gratuitamente em [build.nvidia.com](https://build.nvidia.com).
+Ela **nunca** é escrita no código — fica só no cofre de secrets do Colab.
+
+```python
+client = OpenAI(
+    base_url="https://integrate.api.nvidia.com/v1",
+    api_key=userdata.get('NVD_API_KEY')
+)
+```
+
+**Modelo usado:** `nvidia/nemotron-3.5-lightning-30b-a3b`
+
+## Decisões de implementação
+
+**As categorias são lidas da planilha, não digitadas na mão.**
+O gabarito é comparado texto com texto — um acento errado viraria erro de classificação
+sem culpa do modelo. Lendo da fonte, a lista sai sempre idêntica à referência.
+
+**`temperature = 0`.**
+Classificação em lista fechada não é tarefa criativa. Com temperatura alta, a mesma
+reclamação devolveria categorias diferentes a cada execução, e aí não dá para medir
+acurácia — o número mudaria sozinho.
+
+**`enable_thinking = False`.**
+A decisão é praticamente um "de-para" entre o texto e uma lista de rótulos. Ligar
+reasoning só aumenta latência e custo. Pior: no Experimento 1, com thinking ligado, o
+modelo devolveu o raciocínio inteiro no lugar da resposta de uma palavra.
+
+**A lista de categorias vai literal dentro do System Prompt.**
+É o que segura a alucinação de categoria — o modelo não pode copiar o que não vê.
+
+## Resultados
+
+Batch de 5 casos aleatórios: **2 acertos (40%)**.
+
+| Gabarito | Previsto | |
+|---|---|---|
+| Qualidade da internet | Instabilidade do sinal | ❌ |
+| Mudança de plano | Mudança de plano | ✅ |
+| Cancelamento | Cancelamento | ✅ |
+| Promoções | Planos e tarifas | ❌ |
+| Consumo de crédito | Planos e tarifas | ❌ |
+
+Duas observações que importam mais que o número:
+
+**Zero alucinações.** As 5 respostas são categorias que existem na lista. Restringir a
+saída pelo System Prompt funcionou.
+
+**Os erros são pares vizinhos**, não chutes aleatórios: *Qualidade da internet* ↔
+*Instabilidade do sinal*, *Promoções* ↔ *Planos e tarifas*. A fronteira entre essas
+categorias é regra de negócio que não está escrita no prompt. Se dois humanos rotulassem,
+também discordariam.
+
+**Sobre o número em si:** rodamos o mesmo código duas vezes e obtivemos 20% e depois 40%.
+Com 5 amostras, cada item vale 20 pontos percentuais — isso é intuição, não métrica.
+Para um número confiável seriam necessários 50–100 casos, olhando a acurácia por
+categoria e não só a média.
+
+## Próximos passos
+
+1. **Few-shot** — incluir 3 a 5 exemplos resolvidos no prompt, escolhidos justamente nos
+   pares que confundiram. Ensina a fronteira entre as categorias sem dado novo.
+2. **Features adicionais** — status da linha, valor da fatura, tempo entre contratação e
+   reclamação. Desambiguariam boa parte dos erros observados.
+3. **Fluxo híbrido** — classificação automática nos casos de alta confiança, revisão
+   humana nos ambíguos. As revisões viram dado para melhorar o prompt.
+
+## Stack
+
+`Python` · `OpenAI SDK` · `NVIDIA NIM API` · `pandas` · `tiktoken` · `datasets` · `Google Colab`
