@@ -1,5 +1,7 @@
 # Acompanhamento NN — DD/MM/AAAA
 
+**Integrantes:** Breno Luna e Paula Carlesso
+
 ## O que o grupo concluiu desde o último acompanhamento?
 _(resumo objetivo do avanço)_
 

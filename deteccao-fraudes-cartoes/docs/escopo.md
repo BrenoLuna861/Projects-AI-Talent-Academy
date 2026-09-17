@@ -1,5 +1,7 @@
 # Escopo do Projeto
 
+**Autores:** Breno Luna e Paula Carlesso
+
 ## Tema
 Machine Learning para **Detecção de Fraudes em Cartões**.
 

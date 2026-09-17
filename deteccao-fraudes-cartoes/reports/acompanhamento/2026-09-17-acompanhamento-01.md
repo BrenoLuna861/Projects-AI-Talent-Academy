@@ -1,5 +1,7 @@
 # Acompanhamento 01 — 17/09/2026
 
+**Integrantes:** Breno Luna e Paula Carlesso
+
 ## 7. O que o grupo concluiu desde o último acompanhamento?
 O grupo definiu o tema do projeto como **Machine Learning para Detecção de
 Fraudes em Cartões**, estabelecendo como foco a identificação de possíveis

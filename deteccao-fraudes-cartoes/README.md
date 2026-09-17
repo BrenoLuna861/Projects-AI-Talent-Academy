@@ -1,8 +1,10 @@
 # Detecção de Fraudes em Cartões — Machine Learning + Dashboard
 
-Projeto do grupo no **AI Talent Academy**. O objetivo é identificar transações
+Projeto do **AI Talent Academy**. O objetivo é identificar transações
 potencialmente fraudulentas com cartões de crédito usando Machine Learning e
 apresentar os resultados em um **dashboard no Power BI**.
+
+**Autores:** Breno Luna ([@BrenoLuna861](https://github.com/BrenoLuna861)) · Paula Carlesso
 
 ---
 
@@ -85,9 +87,14 @@ Resumo (detalhe em [`docs/indicadores-dashboard.md`](docs/indicadores-dashboard.
 - Desempenho do modelo: Recall, Precision, F1, AUC-PR e matriz de confusão
 - Evolução temporal da taxa de fraude
 
-## 6. Divisão de atividades
+## 6. Autores e divisão de atividades
 
-Ver [`docs/plano-de-atividades.md`](docs/plano-de-atividades.md).
+| Autor | Frentes |
+|---|---|
+| **Breno Luna** | ETL, modelagem e estrutura do repositório |
+| **Paula Carlesso** | Análise exploratória, dashboard Power BI e documentação |
+
+Divisão detalhada por etapa em [`docs/plano-de-atividades.md`](docs/plano-de-atividades.md).
 
 ## 7. Status
 
