@@ -17,7 +17,7 @@ README explicando o que foi feito, as decisões técnicas e os resultados.
 
 > As próximas aulas serão adicionadas seguindo o mesmo padrão.
 
-**Grupo 01:** Breno Luna · Ricardo Lima · Paula Carlesso
+**Grupo 01:**  ·Breno Luna  · Paula Carlesso
 
 ---
 
