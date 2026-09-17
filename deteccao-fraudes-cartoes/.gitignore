@@ -1,0 +1,39 @@
+# Dados (não versionar bases brutas nem intermediárias)
+data/raw/*
+data/interim/*
+data/processed/*
+data/external/*
+!data/**/.gitkeep
+!data/**/README.md
+
+# Modelos treinados
+models/*.pkl
+models/*.joblib
+*.pkl
+*.joblib
+
+# Power BI
+*.pbix.bak
+~$*.pbix
+.pbi/
+*.pbip.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+
+# Ambiente
+.env
+.env.local
+
+# SO / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

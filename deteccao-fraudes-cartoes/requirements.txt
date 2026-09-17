@@ -1,0 +1,27 @@
+# --- núcleo ---
+pandas>=2.2
+numpy>=1.26
+scipy>=1.13
+
+# --- modelagem ---
+scikit-learn>=1.5
+imbalanced-learn>=0.12
+xgboost>=2.1
+lightgbm>=4.5
+joblib>=1.4
+
+# --- visualização / EDA ---
+matplotlib>=3.9
+seaborn>=0.13
+
+# --- notebooks ---
+jupyterlab>=4.2
+ipykernel>=6.29
+
+# --- suporte ---
+python-dotenv>=1.0
+pyarrow>=16.0
+openpyxl>=3.1
+
+# --- testes ---
+pytest>=8.2

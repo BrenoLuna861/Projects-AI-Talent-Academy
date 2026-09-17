@@ -1,0 +1,92 @@
+// ======================================================
+// Medidas — Dashboard de Detecção de Fraudes
+// Colar em uma tabela de medidas dedicada (_Medidas)
+// ======================================================
+
+// ---------- Volume e valor ----------
+Total Transacoes =
+COUNTROWS ( fTransacoes )
+
+Valor Total =
+SUM ( fTransacoes[valor] )
+
+// ---------- Alertas do modelo ----------
+Transacoes Suspeitas =
+CALCULATE (
+    COUNTROWS ( fPredicoes ),
+    fPredicoes[classe_prevista] = 1
+)
+
+Taxa de Fraude % =
+DIVIDE ( [Transacoes Suspeitas], [Total Transacoes], 0 )
+
+Valor em Risco =
+CALCULATE (
+    SUM ( fTransacoes[valor] ),
+    fPredicoes[classe_prevista] = 1
+)
+
+Ticket Medio Fraude =
+CALCULATE (
+    AVERAGE ( fTransacoes[valor] ),
+    fPredicoes[classe_prevista] = 1
+)
+
+Ticket Medio Legitima =
+CALCULATE (
+    AVERAGE ( fTransacoes[valor] ),
+    fPredicoes[classe_prevista] = 0
+)
+
+// ---------- Matriz de confusão ----------
+Verdadeiros Positivos =
+CALCULATE (
+    COUNTROWS ( fPredicoes ),
+    fPredicoes[classe_prevista] = 1,
+    fPredicoes[classe_real] = 1
+)
+
+Falsos Positivos =
+CALCULATE (
+    COUNTROWS ( fPredicoes ),
+    fPredicoes[classe_prevista] = 1,
+    fPredicoes[classe_real] = 0
+)
+
+Falsos Negativos =
+CALCULATE (
+    COUNTROWS ( fPredicoes ),
+    fPredicoes[classe_prevista] = 0,
+    fPredicoes[classe_real] = 1
+)
+
+Verdadeiros Negativos =
+CALCULATE (
+    COUNTROWS ( fPredicoes ),
+    fPredicoes[classe_prevista] = 0,
+    fPredicoes[classe_real] = 0
+)
+
+// ---------- Desempenho do modelo ----------
+Recall =
+DIVIDE ( [Verdadeiros Positivos], [Verdadeiros Positivos] + [Falsos Negativos], 0 )
+
+Precision =
+DIVIDE ( [Verdadeiros Positivos], [Verdadeiros Positivos] + [Falsos Positivos], 0 )
+
+F1 Score =
+DIVIDE ( 2 * [Precision] * [Recall], [Precision] + [Recall], 0 )
+
+Fraudes Nao Detectadas (Valor) =
+CALCULATE (
+    SUM ( fTransacoes[valor] ),
+    fPredicoes[classe_prevista] = 0,
+    fPredicoes[classe_real] = 1
+)
+
+// ---------- Evolução ----------
+Taxa de Fraude % MA7 =
+AVERAGEX (
+    DATESINPERIOD ( dCalendario[data], MAX ( dCalendario[data] ), -7, DAY ),
+    [Taxa de Fraude %]
+)

@@ -1,0 +1,15 @@
+// Tabela calculada de datas — criar em Modelagem > Nova tabela
+dCalendario =
+VAR DataMin = MIN ( fTransacoes[data] )
+VAR DataMax = MAX ( fTransacoes[data] )
+RETURN
+ADDCOLUMNS (
+    CALENDAR ( DataMin, DataMax ),
+    "Ano", YEAR ( [Date] ),
+    "Mes", FORMAT ( [Date], "MMM" ),
+    "NumMes", MONTH ( [Date] ),
+    "AnoMes", FORMAT ( [Date], "YYYY-MM" ),
+    "DiaSemana", FORMAT ( [Date], "dddd" ),
+    "NumDiaSemana", WEEKDAY ( [Date], 2 ),
+    "Semana", WEEKNUM ( [Date], 2 )
+)
