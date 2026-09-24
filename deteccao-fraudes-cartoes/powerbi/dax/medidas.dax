@@ -1,5 +1,8 @@
 // ======================================================
 // Medidas — Dashboard de Detecção de Fraudes
+// Tabelas: fTransacoes (transacoes_dashboard.csv)
+//          fPredicoes  (predicoes.csv)
+//          fMetricas   (metricas_modelo.csv)
 // Colar em uma tabela de medidas dedicada (_Medidas)
 // ======================================================
 
@@ -10,35 +13,49 @@ COUNTROWS ( fTransacoes )
 Valor Total =
 SUM ( fTransacoes[valor] )
 
+Ticket Medio =
+AVERAGE ( fTransacoes[valor] )
+
 // ---------- Alertas do modelo ----------
 Transacoes Suspeitas =
-CALCULATE (
-    COUNTROWS ( fPredicoes ),
-    fPredicoes[classe_prevista] = 1
-)
+CALCULATE ( COUNTROWS ( fPredicoes ), fPredicoes[classe_prevista] = 1 )
 
-Taxa de Fraude % =
+Taxa de Alerta % =
 DIVIDE ( [Transacoes Suspeitas], [Total Transacoes], 0 )
 
 Valor em Risco =
-CALCULATE (
-    SUM ( fTransacoes[valor] ),
-    fPredicoes[classe_prevista] = 1
-)
+CALCULATE ( SUM ( fTransacoes[valor] ), fPredicoes[classe_prevista] = 1 )
 
-Ticket Medio Fraude =
-CALCULATE (
-    AVERAGE ( fTransacoes[valor] ),
-    fPredicoes[classe_prevista] = 1
-)
+Ticket Medio Suspeita =
+CALCULATE ( AVERAGE ( fTransacoes[valor] ), fPredicoes[classe_prevista] = 1 )
 
-Ticket Medio Legitima =
-CALCULATE (
-    AVERAGE ( fTransacoes[valor] ),
-    fPredicoes[classe_prevista] = 0
-)
+// ---------- Fraude observada (contestacao) ----------
+Fraudes Reais =
+CALCULATE ( COUNTROWS ( fPredicoes ), fPredicoes[classe_real] = 1 )
 
-// ---------- Matriz de confusão ----------
+Taxa de Fraude Real % =
+DIVIDE ( [Fraudes Reais], [Total Transacoes], 0 )
+
+Valor Contestado =
+CALCULATE ( SUM ( fTransacoes[valor] ), fPredicoes[classe_real] = 1 )
+
+// ---------- Padroes investigados na Aula 08 ----------
+Transacoes na Madrugada =
+CALCULATE ( COUNTROWS ( fTransacoes ), fTransacoes[madrugada] = 1 )
+
+% na Madrugada =
+DIVIDE ( [Transacoes na Madrugada], [Total Transacoes], 0 )
+
+Transacoes com Padrao Teste de Cartao =
+CALCULATE ( COUNTROWS ( fTransacoes ), fTransacoes[padrao_teste_cartao] = 1 )
+
+Transacoes Online =
+CALCULATE ( COUNTROWS ( fTransacoes ), fTransacoes[canal] = "online" )
+
+% Online =
+DIVIDE ( [Transacoes Online], [Total Transacoes], 0 )
+
+// ---------- Matriz de confusao ----------
 Verdadeiros Positivos =
 CALCULATE (
     COUNTROWS ( fPredicoes ),
@@ -84,9 +101,12 @@ CALCULATE (
     fPredicoes[classe_real] = 1
 )
 
-// ---------- Evolução ----------
-Taxa de Fraude % MA7 =
+Limiar Utilizado =
+CALCULATE ( MAX ( fMetricas[limiar] ) )
+
+// ---------- Evolucao ----------
+Taxa de Alerta % MA7 =
 AVERAGEX (
     DATESINPERIOD ( dCalendario[data], MAX ( dCalendario[data] ), -7, DAY ),
-    [Taxa de Fraude %]
+    [Taxa de Alerta %]
 )

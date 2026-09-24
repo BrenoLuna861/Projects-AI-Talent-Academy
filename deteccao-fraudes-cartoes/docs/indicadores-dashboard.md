@@ -1,34 +1,48 @@
 # Indicadores do Dashboard
 
-## Página 1 — Visão Geral do Negócio
-| Indicador | Cálculo | Leitura |
+**Autores:** Breno Luna e Paula Carlesso
+
+Fontes: `transacoes_dashboard.csv`, `predicoes.csv` e `metricas_modelo.csv`,
+gerados em `data/processed/`. Medidas prontas em `powerbi/dax/medidas.dax`.
+
+## Página 1 — Visão Geral
+| Indicador | Medida DAX | Leitura |
 |---|---|---|
-| Total de transações | Contagem de linhas | Volume analisado |
-| Valor total transacionado | Soma de `valor` | Exposição total |
-| Transações suspeitas | Contagem onde `classe_prevista = 1` | Alertas gerados |
-| Taxa de fraude (%) | Suspeitas / Total | Incidência |
-| Valor em risco | Soma de `valor` das suspeitas | Impacto financeiro |
-| Ticket médio — fraude x legítima | Média de `valor` por classe | Perfil da fraude |
+| Total de transações | `Total Transacoes` | Volume analisado |
+| Valor total | `Valor Total` | Exposição total |
+| Transações suspeitas | `Transacoes Suspeitas` | Alertas gerados pelo modelo |
+| Taxa de alerta | `Taxa de Alerta %` | Quanto da base cai na fila de revisão |
+| Valor em risco | `Valor em Risco` | Soma das transações alertadas |
+| Taxa de fraude real | `Taxa de Fraude Real %` | Contestações observadas |
+
+Sempre lado a lado: **taxa de alerta** e **taxa de fraude real**. A distância
+entre as duas é o custo operacional do modelo — se o modelo alerta 40% da base
+para achar 1% de fraude, nenhuma equipe dá conta de revisar.
 
 ## Página 2 — Perfil da Fraude
-- Fraudes por **faixa de valor** (barras)
-- Fraudes por **hora do dia** (coluna/linha)
-- Evolução diária/semanal da **taxa de fraude** (linha)
-- Concentração por categoria ou canal, quando a base permitir (treemap)
-- Top N transações por probabilidade de fraude (tabela detalhada)
+- Fraudes por **faixa de valor** (`faixa_valor`)
+- Fraudes por **hora do dia** e destaque de madrugada (`% na Madrugada`)
+- Fraudes por **categoria de lojista** (`nome_categoria`)
+- **Canal**: online x presencial (`% Online`)
+- Transações com **padrão de teste de cartão** (`Transacoes com Padrao Teste de Cartao`)
+- Tabela Top 50 por `probabilidade_fraude`, com formatação condicional
+
+Esta página só existe porque a base tem campos de negócio — é a razão de termos
+preferido a base do curso às bases anonimizadas do Kaggle.
 
 ## Página 3 — Desempenho do Modelo
-| Métrica | Por que importa neste problema |
-|---|---|
-| Recall (sensibilidade) | % das fraudes reais que o modelo capturou — métrica principal |
-| Precision | % dos alertas que eram fraude de fato — mede o custo operacional |
-| F1-Score | Equilíbrio entre as duas |
-| AUC-PR | Mais informativa que ROC em base desbalanceada |
-| Matriz de confusão | VP, FP, VN, FN em números absolutos |
-| Curva Precision-Recall por limiar | Apoia a escolha do ponto de corte |
+| Métrica | Medida | Por que importa |
+|---|---|---|
+| Recall | `Recall` | % das fraudes capturadas — métrica principal |
+| Precision | `Precision` | % dos alertas que eram fraude — custo da operação |
+| F1 | `F1 Score` | Equilíbrio entre as duas |
+| Matriz de confusão | VP/FP/FN/VN | Números absolutos |
+| Valor não detectado | `Fraudes Nao Detectadas (Valor)` | Prejuízo que passou |
+| Limiar | `Limiar Utilizado` | Deixa explícito o corte usado |
 
-> **Atenção:** acurácia não entra como KPI principal. Com ~0,2% de fraudes, um
-> modelo que nunca acusa fraude ainda acerta 99,8% — e é inútil.
+> Acurácia não entra como KPI. Com ~1% de fraude, um modelo que nunca acusa
+> nada acerta 99% — e é inútil.
 
-## Filtros globais sugeridos
-Período, faixa de valor, hora do dia, classe prevista, faixa de probabilidade.
+## Filtros globais
+Período · faixa de valor · canal · categoria de lojista · classe prevista ·
+faixa de probabilidade.

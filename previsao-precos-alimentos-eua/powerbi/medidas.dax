@@ -1,0 +1,107 @@
+// Medidas do dashboard de previsão de preços
+// Criar numa tabela vazia chamada _Medidas
+//
+// Tabelas (ver powerbi/README.md):
+//   dim_item, fato_precos, previsao_futura, previsoes_teste,
+//   metricas_modelos, metricas_por_categoria, sazonalidade, dCalendario
+
+
+// ---------- Preços ----------
+
+Preco Medio =
+AVERAGE ( fato_precos[preco] )
+
+Preco Atual =
+VAR ultimaData = CALCULATE ( MAX ( fato_precos[data] ), ALLSELECTED ( dCalendario ) )
+RETURN
+    CALCULATE ( AVERAGE ( fato_precos[preco] ), dCalendario[data] = ultimaData )
+
+Preco 12m Atras =
+CALCULATE ( [Preco Medio], DATEADD ( dCalendario[data], -12, MONTH ) )
+
+Variacao 12m % =
+DIVIDE ( [Preco Medio] - [Preco 12m Atras], [Preco 12m Atras] )
+
+// índice com a média de 2019 = 100, por série; no visual, mediana por categoria
+Indice 2019 =
+VAR base2019 =
+    CALCULATE (
+        AVERAGE ( fato_precos[preco] ),
+        REMOVEFILTERS ( dCalendario ),
+        dCalendario[ano] = 2019
+    )
+RETURN
+    DIVIDE ( [Preco Medio], base2019 ) * 100
+
+Indice 2019 Mediana Categoria =
+MEDIANX ( VALUES ( dim_item[serie_id] ), [Indice 2019] )
+
+Meses Interpolados =
+CALCULATE ( COUNTROWS ( fato_precos ), fato_precos[imputado] = TRUE () )
+
+
+// ---------- Panorama (dim_item) ----------
+
+Itens Ativos =
+CALCULATE ( COUNTROWS ( dim_item ), dim_item[ativa] = TRUE () )
+
+Variacao Mediana Periodo % =
+MEDIAN ( dim_item[variacao_12m_pct] ) / 100
+
+Itens Acima da Inflacao =
+CALCULATE ( COUNTROWS ( dim_item ), dim_item[variacao_12m_pct] > 35 )
+
+Pct Itens Acima da Inflacao =
+DIVIDE ( [Itens Acima da Inflacao], [Itens Ativos] )
+
+
+// ---------- Previsão ----------
+
+Preco Previsto =
+AVERAGE ( previsao_futura[preco_previsto] )
+
+Faixa Inferior =
+AVERAGE ( previsao_futura[faixa_inferior] )
+
+Faixa Superior =
+AVERAGE ( previsao_futura[faixa_superior] )
+
+Variacao Prevista % =
+AVERAGE ( previsao_futura[variacao_prevista_pct] ) / 100
+
+Itens com Alta Prevista =
+CALCULATE ( COUNTROWS ( previsao_futura ), previsao_futura[variacao_prevista_pct] > 0 )
+
+
+// ---------- Desempenho do modelo (período de teste) ----------
+// Usar com filtro de modelo (segmentação em previsoes_teste[modelo])
+
+WAPE Teste =
+DIVIDE ( SUM ( previsoes_teste[erro_abs] ), SUM ( previsoes_teste[preco_real] ) )
+
+WAPE Ingenuo =
+CALCULATE (
+    [WAPE Teste],
+    previsoes_teste[modelo] = "ingenuo"
+)
+
+Ganho sobre Ingenuo =
+1 - DIVIDE ( [WAPE Teste], [WAPE Ingenuo] )
+
+Vies Medio % =
+AVERAGE ( previsoes_teste[erro_pct] ) / 100
+
+Preco Real Teste =
+AVERAGE ( previsoes_teste[preco_real] )
+
+Preco Previsto Teste =
+AVERAGE ( previsoes_teste[preco_previsto] )
+
+
+// ---------- Backtest (metricas_modelos) ----------
+
+WAPE Backtest =
+AVERAGE ( metricas_modelos[wape] ) / 100
+
+WAPE Medio Cortes =
+CALCULATE ( [WAPE Backtest], REMOVEFILTERS ( metricas_modelos[corte] ) )

@@ -1,13 +1,17 @@
-"""Load — gravação dos dados tratados."""
+"""Load — gravação dos datasets."""
+from pathlib import Path
+
 import pandas as pd
 
-from src.config import ARQUIVO_TRATADO
 from src.utils.logger import get_logger
 
 log = get_logger(__name__)
 
 
-def salvar_tratado(df: pd.DataFrame, caminho=ARQUIVO_TRATADO) -> None:
+def salvar(df: pd.DataFrame, caminho: Path) -> None:
     caminho.parent.mkdir(parents=True, exist_ok=True)
-    df.to_parquet(caminho, index=False)
-    log.info("Dataset tratado salvo em %s (%s linhas)", caminho, len(df))
+    if caminho.suffix == ".parquet":
+        df.to_parquet(caminho, index=False)
+    else:
+        df.to_csv(caminho, index=False)
+    log.info("Salvo: %s (%s linhas)", caminho.name, len(df))

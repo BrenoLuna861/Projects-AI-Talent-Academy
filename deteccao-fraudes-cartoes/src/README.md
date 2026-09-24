@@ -1,32 +1,35 @@
 # src — Código do pipeline
 
-Pacote Python do projeto. Sempre executar a partir da raiz do projeto para que os
-imports `src.*` funcionem:
+Execute sempre a partir da raiz do projeto, para os imports `src.*` funcionarem:
 
 ```bash
-python -m src.etl.run_pipeline
-python -m src.models.train_model
-python -m src.models.evaluate
+python -m src.etl.run_pipeline      # ETL completo
+python -m src.models.train_model    # treino
+python -m src.models.evaluate       # métricas + limiar
+python -m src.models.predict_model  # export para o Power BI
 ```
 
 ## Módulos
 
 | Caminho | Responsabilidade |
 |---|---|
-| `config.py` | Caminhos, nome da coluna alvo, seed, tamanho do teste e limiar de decisão — **único lugar** onde caminhos são escritos |
-| `etl/extract.py` | Leitura da base bruta |
-| `etl/transform.py` | Duplicatas, nulos e padronização de tipos |
-| `etl/load.py` | Gravação do dataset tratado em `data/processed/` |
-| `etl/run_pipeline.py` | Orquestra extract → transform → features → load |
-| `features/build_features.py` | `hora_do_dia`, `faixa_valor` e demais atributos derivados |
-| `models/train_model.py` | Treino e persistência dos modelos comparados |
-| `models/predict_model.py` | Predições e export do `predicoes.csv` para o Power BI |
-| `models/evaluate.py` | Recall, precision, F1, AUC-PR e matriz de confusão |
+| `config.py` | Caminhos, IDs do Drive, `SCHEMA_ESPERADO`, seed, proporção de teste — **único lugar** com caminho escrito |
+| `utils/schema.py` | Valida as colunas de cada tabela e falha com mensagem útil |
 | `utils/logger.py` | Logger padronizado |
+| `etl/extract.py` | Baixa os CSVs do Drive se faltarem e carrega as seis tabelas |
+| `etl/transform.py` | Quarentena: marca `motivo_rejeicao` e separa válidas de rejeitadas |
+| `etl/build_dataset.py` | Unifica as tabelas e cria o rótulo a partir de `contestacoes` |
+| `etl/load.py` | Grava parquet/CSV |
+| `etl/run_pipeline.py` | Orquestra tudo, com `assert` de reconciliação |
+| `features/build_features.py` | Features e a lista `COLUNAS_MODELO` |
+| `models/train_model.py` | Split temporal + dicionário `MODELOS` |
+| `models/evaluate.py` | Métricas e `escolher_limiar()` |
+| `models/predict_model.py` | Exporta `predicoes.csv` e `transacoes_dashboard.csv` |
 
 ## Convenções
 
-- Nenhum caminho absoluto fora de `config.py`.
-- Funções pequenas e testáveis: o que recebe e devolve um `DataFrame` pode ser testado em `tests/`.
-- `SEED = 42` em tudo que tiver aleatoriedade, para os resultados serem reproduzíveis entre os integrantes.
-- Novo algoritmo entra no dicionário `MODELOS` de `train_model.py` — a avaliação percorre esse dicionário automaticamente.
+- **Nenhum caminho absoluto fora de `config.py`.**
+- **Nenhuma feature pode usar o futuro.** Todo agregado histórico usa `expanding().shift(1)`. Quem adicionar feature nova precisa respeitar isso — é a diferença entre métrica real e métrica ilusória.
+- `SEED = 42` em tudo que tem aleatoriedade.
+- Algoritmo novo entra no dicionário `MODELOS` de `train_model.py`; a avaliação percorre esse dicionário sozinha.
+- Mudou nome de coluna na base? Ajuste `SCHEMA_ESPERADO` em `config.py` — o validador acusa antes do pipeline quebrar.

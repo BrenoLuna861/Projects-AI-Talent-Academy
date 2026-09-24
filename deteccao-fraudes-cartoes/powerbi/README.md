@@ -5,14 +5,14 @@ O dashboard consome os arquivos gerados pelo pipeline Python:
 
 | Tabela | Arquivo | Papel |
 |---|---|---|
-| `fTransacoes` | `data/processed/transacoes_tratadas.parquet` | Fato — transações tratadas |
+| `fTransacoes` | `data/processed/transacoes_dashboard.csv` | Fato — transações do período de teste, com campos de negócio |
 | `fPredicoes` | `data/processed/predicoes.csv` | Fato — saída do modelo |
 | `fMetricas` | `data/processed/metricas_modelo.csv` | Métricas de desempenho |
 | `dCalendario` | Tabela DAX (`powerbi/dax/dCalendario.dax`) | Dimensão de datas |
 
 ## Modelo semântico
 ```
-dCalendario[data] 1 ──── * fTransacoes[data]
+dCalendario[data] 1 ──── * fTransacoes[data_hora]
 fTransacoes[id_transacao] 1 ──── 1 fPredicoes[id_transacao]
 ```
 - Relacionamento `fTransacoes` ↔ `fPredicoes` por `id_transacao` (cardinalidade 1:1, filtro único).
@@ -22,7 +22,7 @@ fTransacoes[id_transacao] 1 ──── 1 fPredicoes[id_transacao]
 ## Passo a passo
 1. **Obter dados → Pasta/Arquivo** apontando para `data/processed/`.
 2. Ajustar tipos no Power Query (valor como decimal, datas como data/hora).
-3. Criar `dCalendario` com o script em `powerbi/dax/dCalendario.dax`.
+3. Criar `dCalendario` com o script em `powerbi/dax/dCalendario.dax` (a coluna de data vem de `fTransacoes[data_hora]`).
 4. Colar as medidas de `powerbi/dax/medidas.dax` em uma tabela de medidas.
 5. Montar as três páginas descritas em `docs/indicadores-dashboard.md`.
 6. Salvar como `powerbi/dashboard-fraudes.pbix` (arquivo grande: considerar `.pbip` para versionar melhor no Git).

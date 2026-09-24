@@ -21,6 +21,7 @@ ipykernel>=6.29
 # --- suporte ---
 python-dotenv>=1.0
 pyarrow>=16.0
+gdown>=5.2
 openpyxl>=3.1
 
 # --- testes ---

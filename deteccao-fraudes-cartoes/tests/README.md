@@ -1,24 +1,26 @@
 # tests — Testes automatizados
 
-Rodar a partir da raiz do projeto:
-
 ```bash
 pytest -q
 ```
 
-## O que já está coberto
+## O que está coberto
 
 | Arquivo | Testa |
 |---|---|
-| `test_features.py` | Derivação de `hora_do_dia` e das faixas de valor |
-| `test_transform.py` | Remoção de duplicatas e padronização de tipos |
+| `test_transform.py` | Quarentena não perde linha, separa os quatro motivos, converte tipos |
+| `test_features.py` | Marcação de madrugada, ausência de vazamento na média do cartão e na taxa do lojista, canal binário |
+| `test_build_dataset.py` | Rótulo marca só as contestadas e ignora contestação órfã |
 
-## O que vale testar a seguir
+Os dois testes de vazamento são os mais importantes do projeto. Eles verificam
+que a **primeira** transação de cada cartão e de cada lojista não tem média nem
+taxa histórica preenchida — se tiver, é porque o `shift(1)` foi perdido em
+alguma alteração e o modelo passou a enxergar o futuro. Esse tipo de bug não
+quebra nada: ele só faz as métricas ficarem ótimas e o modelo falhar na vida
+real.
 
-- Nenhuma linha perdida ou duplicada ao longo do pipeline de ETL.
-- Coluna alvo contendo apenas 0 e 1 após o `transform`.
-- `exportar_predicoes` gerando exatamente as colunas que o Power BI espera.
+## O que vale acrescentar
 
-Testes aqui não são burocracia: eles pegam o erro silencioso — uma feature que
-some, um filtro que corta linhas demais — que só apareceria no dashboard com o
-número errado já na tela.
+- Contagem de linhas preservada entre unify e features.
+- `exportar_predicoes` gerando exatamente as colunas esperadas pelo Power BI.
+- `escolher_limiar` devolvendo corte válido quando nenhum limiar atinge o recall mínimo.

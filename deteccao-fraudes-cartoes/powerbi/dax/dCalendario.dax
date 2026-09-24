@@ -1,7 +1,7 @@
 // Tabela calculada de datas — criar em Modelagem > Nova tabela
 dCalendario =
-VAR DataMin = MIN ( fTransacoes[data] )
-VAR DataMax = MAX ( fTransacoes[data] )
+VAR DataMin = MIN ( fTransacoes[data_hora] )
+VAR DataMax = MAX ( fTransacoes[data_hora] )
 RETURN
 ADDCOLUMNS (
     CALENDAR ( DataMin, DataMax ),

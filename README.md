@@ -14,6 +14,7 @@ README explicando o que foi feito, as decisões técnicas e os resultados.
 | # | Atividade | Tema | Autoria | Notebook |
 |---|---|---|---|---|
 | 04 | Prática 02 — Semana 2 | Classificação de reclamações com LLM via API | Grupo 01 | [Abrir](./aula-04-pratica-02/) |
+| Final | Projeto final | Previsão de preços de alimentos e energia nos EUA (ML + Power BI) | Grupo 01 | [Abrir](./previsao-precos-alimentos-eua/) |
 
 > As próximas aulas serão adicionadas seguindo o mesmo padrão.
 
