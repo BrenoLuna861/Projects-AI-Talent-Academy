@@ -20,7 +20,8 @@ Visuais:
 
 - Linha do item selecionado com os meses interpolados destacados
 - Matriz categoria x mês com o desvio sazonal médio
-- Ranking de volatilidade mensal (desvio-padrão da variação mês a mês)
+- Ranking de volatilidade mensal (`dim_item[vol_mensal_pct]`)
+- Dispersão força da tendência x força da sazonalidade, uma bolha por item (`dim_item`)
 
 ## Página 3 - Previsão
 
@@ -46,7 +47,7 @@ Visuais:
 | Viés | Se o modelo tende a prever alto ou baixo |
 
 Visuais:
-- Colunas: WAPE por corte de backtest e modelo
+- Colunas: WAPE por corte de backtest e modelo, agrupando ML, série temporal e combinado
 - Barras: WAPE por categoria, modelo final x ingênuo
 - Linha: real x previsto no período de teste para o item selecionado
 

@@ -49,3 +49,15 @@ def test_treino_nao_enxerga_periodo_de_teste():
     base = construir_base(_precos(), ["S1", "S2"], h=3)
     treino, teste = separar_treino_teste(base, "2020-12-01")
     assert treino["data_alvo"].max() <= teste["data_base"].min()
+
+
+def test_mes_base_interpolado_fica_fora():
+    from src.features.build_features import linhas_utilizaveis
+
+    precos = _precos()
+    precos.loc[(precos["serie_id"] == "S1") & (precos["data"] == "2020-06-01"), "imputado"] = True
+    base = construir_base(precos, ["S1"], h=3)
+    uteis = linhas_utilizaveis(base)
+    assert pd.Timestamp("2020-06-01") not in set(uteis["data_base"])
+    # e também não é alvo de ninguém (mês-base 2020-03)
+    assert pd.Timestamp("2020-03-01") not in set(uteis["data_base"])

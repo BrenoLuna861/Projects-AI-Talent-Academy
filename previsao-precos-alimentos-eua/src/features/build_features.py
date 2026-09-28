@@ -94,9 +94,15 @@ def construir_base(precos: pd.DataFrame, series_modelagem, h: int = HORIZONTE) -
 
 
 def linhas_utilizaveis(base: pd.DataFrame) -> pd.DataFrame:
-    """Linhas com todas as features e alvo real (não interpolado)."""
+    """Linhas com todas as features e com preço real no mês-base e no mês-alvo.
+
+    O mês-base também não pode ser interpolado: a interpolação usa o mês seguinte
+    ao buraco (ex.: out/2025 é estimado com nov/2025), então prever a partir dele
+    seria usar um preço que ainda não era conhecido.
+    """
     ok = base[FEATURES_NUMERICAS + ["alvo"]].notna().all(axis=1)
     ok &= base["alvo_imputado"].eq(False)
+    ok &= base["imputado"].eq(False)
     return base[ok]
 
 

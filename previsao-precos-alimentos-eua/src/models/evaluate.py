@@ -11,7 +11,8 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from src.config import ARQUIVO_MODELAGEM, FIM_TREINO, MODELS_DIR, POWERBI_DIR, garantir_pastas
+from src.config import ARQUIVO_MODELAGEM, ARQUIVO_PRECOS, FIM_TREINO, MODELS_DIR, POWERBI_DIR, garantir_pastas
+from src.models import series_temporais
 from src.models.train_model import (
     BASELINES,
     FEATURES,
@@ -27,12 +28,22 @@ log = get_logger(__name__)
 CORTES_BACKTEST = ["2021-12-01", "2022-12-01", "2023-12-01"]
 
 
-def prever_todos(teste: pd.DataFrame, modelos: dict) -> pd.DataFrame:
-    """Uma linha por (série, mês-base, modelo) com o preço previsto."""
+def prever_todos(teste: pd.DataFrame, modelos: dict, precos: pd.DataFrame | None = None, corte=None) -> pd.DataFrame:
+    """Uma linha por (série, mês-base, modelo) com o preço previsto.
+
+    Com `precos` e `corte`, inclui também os modelos clássicos (SARIMA e ETS)
+    e a combinação gradient boosting + SARIMA (média das duas previsões).
+    """
     saidas = []
     previsoes = {nome: f(teste) for nome, f in BASELINES.items()}
     for nome, modelo in modelos.items():
         previsoes[nome] = modelo.predict(teste[FEATURES])
+    if precos is not None:
+        for metodo in series_temporais.METODOS:
+            previsoes[metodo] = series_temporais.prever_variacao(precos, teste, corte, metodo)
+            log.info("%s: %s previsões", metodo, len(teste))
+        if "gradient_boosting" in previsoes:
+            previsoes["combinado"] = (previsoes["gradient_boosting"] + previsoes["sarima"]) / 2
 
     for nome, ret in previsoes.items():
         s = teste[["serie_id", "item", "categoria", "data_base", "data_alvo", "preco", "preco_alvo"]].copy()
@@ -82,7 +93,7 @@ def metricas_por_grupo(prev: pd.DataFrame, coluna: str) -> pd.DataFrame:
     ).round(3).reset_index()
 
 
-def backtest(base: pd.DataFrame, cortes=CORTES_BACKTEST) -> pd.DataFrame:
+def backtest(base: pd.DataFrame, precos: pd.DataFrame, cortes=CORTES_BACKTEST) -> pd.DataFrame:
     resultados = []
     for corte in cortes:
         treino, teste = separar_treino_teste(base, corte)
@@ -92,7 +103,7 @@ def backtest(base: pd.DataFrame, cortes=CORTES_BACKTEST) -> pd.DataFrame:
         modelos = criar_modelos()
         for modelo in modelos.values():
             modelo.fit(treino[FEATURES], treino["alvo"])
-        m = calcular_metricas(prever_todos(teste, modelos))
+        m = calcular_metricas(prever_todos(teste, modelos, precos, corte))
         m.insert(0, "corte", corte)
         resultados.append(m)
         log.info("Backtest corte %s: %s linhas de teste", corte, len(teste))
@@ -104,13 +115,14 @@ def main() -> None:
     teste = pd.read_parquet(MODELS_DIR / "conjunto_teste.parquet")
     modelos = {nome: joblib.load(MODELS_DIR / f"{nome}.joblib") for nome in criar_modelos()}
 
-    prev = prever_todos(teste, modelos)
+    precos = pd.read_parquet(ARQUIVO_PRECOS)
+    prev = prever_todos(teste, modelos, precos, FIM_TREINO)
     metricas = calcular_metricas(prev)
     metricas.insert(0, "corte", FIM_TREINO)
     log.info("Teste principal (corte %s):\n%s", FIM_TREINO, metricas.to_string(index=False))
 
     base = pd.read_parquet(ARQUIVO_MODELAGEM)
-    bt = backtest(base)
+    bt = backtest(base, precos)
     todas = pd.concat([bt, metricas], ignore_index=True)
     todas["data_execucao"] = datetime.now().isoformat(timespec="seconds")
 

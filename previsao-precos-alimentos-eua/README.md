@@ -4,10 +4,11 @@ Projeto final do **AI Talent Academy**, Grupo 1.
 
 **Autores:** Breno Luna ([@BrenoLuna861](https://github.com/BrenoLuna861)) · Paula Carlesso
 
-Modelo de machine learning que prevê o preço médio de 60 itens do dia a dia nos EUA
+Análise de série temporal e previsão do preço médio de 60 itens do dia a dia nos EUA
 (ovos, leite, carne, café, gasolina, energia elétrica...) com 3 meses de antecedência,
-a partir da série mensal do Bureau of Labor Statistics de 2015 a 2026. Os resultados
-vão para um dashboard no Power BI.
+a partir da série mensal do Bureau of Labor Statistics de 2015 a 2026. Comparamos
+modelos clássicos de série temporal (SARIMA, Holt-Winters) com machine learning, e os
+resultados vão para um dashboard no Power BI.
 
 ---
 
@@ -23,20 +24,40 @@ melhor do que simplesmente repetir o preço de hoje?**
 
 ## Resultado em uma frase
 
-Dá, mas pouco e não em tudo. O modelo final (gradient boosting) erra em média 3,9%
-contra 4,1% da regra ingênua, com ganho em 3 de 4 períodos de teste. O ganho vem
-quase todo de frutas (sazonalidade), ovos e carne bovina; em aves, padaria e bebidas
-repetir o último preço continua sendo melhor.
+Dá, mas pouco e não em tudo. O modelo final, a média das previsões de um gradient
+boosting (ML) e de um SARIMA por item, erra em média 3,8% contra 4,1% da regra ingênua
+e ganha dela nos 4 períodos de teste. O ganho vem quase todo de frutas (sazonalidade),
+ovos e carnes; em aves, bebidas e laticínios repetir o último preço continua sendo melhor.
 
-| Modelo | WAPE médio nos 4 cortes | Ganho sobre o ingênuo |
-|---|---|---|
-| gradient_boosting | 3,86% | 5,5% |
-| random_forest | 3,92% | 4,0% |
-| ingênuo (preço de hoje) | 4,08% | - |
-| ridge | 4,19% | -2,6% |
-| sazonal ingênuo | 5,47% | -34% |
+| Modelo | Tipo | WAPE médio nos 4 cortes | Ganho sobre o ingênuo |
+|---|---|---|---|
+| **combinado (GB + SARIMA)** | híbrido | **3,80%** | **7,4%** |
+| gradient_boosting | ML | 3,88% | 5,5% |
+| random_forest | ML | 3,92% | 4,3% |
+| ingênuo (preço de hoje) | regra | 4,10% | - |
+| sarima | série temporal | 4,13% | -0,6% |
+| ridge | ML | 4,21% | -2,5% |
+| ets (Holt-Winters) | série temporal | 4,26% | -3,8% |
+| sazonal ingênuo | regra | 5,47% | -33% |
 
-Detalhes e gráficos em [`notebooks/04_avaliacao_e_export_powerbi.ipynb`](notebooks/04_avaliacao_e_export_powerbi.ipynb).
+Detalhes em [`notebooks/04_avaliacao_e_export_powerbi.ipynb`](notebooks/04_avaliacao_e_export_powerbi.ipynb)
+e [`notebooks/05_series_temporais_e_granularidade.ipynb`](notebooks/05_series_temporais_e_granularidade.ipynb).
+
+## Série temporal e granularidade
+
+O notebook 05 olha os dados como série temporal:
+
+- **Decomposição STL** de cada série em tendência, sazonalidade e ruído. Quase todas têm
+  tendência forte; sazonalidade forte só em frutas, presunto e energia elétrica.
+- **Estacionariedade (ADF):** o preço não é estacionário em 92% das séries; a variação
+  mensal é em 87%. Por isso os modelos trabalham com variação, não com o preço.
+- **Autocorrelação (ACF/PACF):** o preço de hoje explica quase todo o de amanhã (0,95 no
+  1º lag da gasolina), o que torna o ingênuo um adversário difícil.
+- **Granularidade temporal:** para prever o preço médio do próximo trimestre, usar dados
+  mensais erra 2,6-2,7%, contra 3,3% usando dados já agregados por trimestre. Mantivemos
+  a granularidade mensal, a mais fina disponível. Anual deixa só ~11 pontos por série.
+- **Granularidade de produto:** séries agregadas ("All uncooked ground beef") são menos
+  voláteis e mais previsíveis que os itens específicos que resumem.
 
 ## Pipeline
 
@@ -55,8 +76,9 @@ data/raw  ->  ETL  ->  grade mensal  ->  features  ->  modelos  ->  CSVs  ->  Po
 3. **Features** (`src/features/build_features.py`): variações recentes, distância da média
    de 12 meses, volatilidade, sazonalidade do ano anterior, média da categoria e gasolina.
    Toda feature usa só informação disponível no mês-base (tem teste para isso).
-4. **Modelos** (`src/models/`): um modelo global para todas as séries prevendo a variação
-   percentual em 3 meses. Separação temporal e backtest com 4 cortes.
+4. **Modelos** (`src/models/`): ML global para todas as séries (`train_model.py`), SARIMA e
+   Holt-Winters por item (`series_temporais.py`) e a combinação dos dois, todos prevendo a
+   variação em 3 meses. Separação temporal e backtest com 4 cortes.
 5. **Exportação**: tabelas prontas para o Power BI em `data/processed/powerbi/`.
 
 ## Como rodar
@@ -72,12 +94,12 @@ Baixe o dataset do Kaggle e extraia os CSVs em `data/raw/` (ver [`data/README.md
 ```bash
 python -m src.etl.run_pipeline      # ETL + base de modelagem
 python -m src.models.train_model    # treino (corte dez/2024)
-python -m src.models.evaluate       # teste + backtest
+python -m src.models.evaluate       # teste + backtest (~4 min, por causa do SARIMA/ETS)
 python -m src.models.predict_model  # modelo final, previsão e exportação
 pytest                              # testes
 ```
 
-Tudo roda em menos de 1 minuto num notebook comum.
+No total leva uns 5 minutos num notebook comum.
 
 ## Estrutura
 
@@ -87,7 +109,8 @@ Tudo roda em menos de 1 minuto num notebook comum.
 │   ├── interim/      grade mensal e tabela de itens
 │   └── processed/    base de modelagem e powerbi/
 ├── docs/             escopo, dicionário de dados, indicadores, plano de atividades
-├── notebooks/        01 EDA, 02 preparação, 03 modelagem, 04 avaliação/exportação
+├── notebooks/        01 EDA, 02 preparação, 03 modelagem, 04 avaliação/exportação,
+│                     05 série temporal e granularidade
 ├── powerbi/          medidas DAX e orientação do dashboard
 ├── reports/          figuras e acompanhamentos do grupo
 ├── src/              código do pipeline
@@ -108,6 +131,8 @@ Detalhe em [`docs/plano-de-atividades.md`](docs/plano-de-atividades.md).
 - Preços **nominais**. Nada foi corrigido pela inflação (o CPI subiu ~35% no período).
 - **Média nacional**: esconde diferenças grandes entre regiões, marcas e tamanhos de embalagem.
 - A faixa de previsão no dashboard vem dos quantis do erro no teste. É uma referência prática, não um intervalo de confiança formal.
+- Granularidade limitada ao que o BLS publica: mensal e nacional. Não há dado semanal nem por região no dataset.
+- A combinação GB + SARIMA foi escolhida depois de ver o backtest. Os mesmos 4 cortes serviram para escolher e para medir, então o ganho real tende a ser um pouco menor que 7%.
 - Quem define o preço é o mercado; o modelo só enxerga o histórico do próprio preço, da categoria e da gasolina. Choques como gripe aviária ou tarifas não estão nos dados.
 
 ## Fonte

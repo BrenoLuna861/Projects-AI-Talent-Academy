@@ -46,6 +46,8 @@ Uma linha por série.
 | `media_12_inicio`, `media_12_fim` | Média dos 12 primeiros e 12 últimos meses |
 | `variacao_12m_pct` | Variação entre as duas médias; vazio para série inativa |
 | `motivo_exclusao` | Por que a série não entra na modelagem (`descontinuada`, `historico_curto`, `muitos_buracos`) |
+| `vol_mensal_pct` | Desvio-padrão da variação mensal (%). Só no `dim_item.csv` |
+| `forca_tendencia`, `forca_sazonalidade` | 0 a 1, da decomposição STL (notebook 05). Só séries modeladas, só no `dim_item.csv` |
 
 ## `data/processed/base_modelagem.parquet`
 
@@ -64,6 +66,8 @@ Uma linha por (série, mês-base). Features descritas em `notebooks/02_preparaca
 **`fato_precos.csv`**: `serie_id`, `data`, `preco`, `imputado`. Histórico completo.
 
 **`previsoes_teste.csv`**: uma linha por série, mês-base e modelo no período de teste.
+Modelos: `ingenuo`, `sazonal_ingenuo` (regras), `ridge`, `random_forest`, `gradient_boosting`
+(ML), `sarima`, `ets` (série temporal) e `combinado` (média de gradient boosting e SARIMA).
 
 | Coluna | Descrição |
 |---|---|
@@ -73,6 +77,7 @@ Uma linha por (série, mês-base). Features descritas em `notebooks/02_preparaca
 | `erro`, `erro_abs`, `erro_pct` | previsto - real, em US$ e em % do real |
 
 **`previsao_futura.csv`**: previsão do modelo final a partir do último mês disponível.
+São 59 séries: a alface romana fica de fora porque os meses mais recentes dela estão faltando.
 
 | Coluna | Descrição |
 |---|---|
@@ -85,3 +90,6 @@ Uma linha por (série, mês-base). Features descritas em `notebooks/02_preparaca
 
 **`metricas_por_categoria.csv`** e **`metricas_por_item.csv`**: `mape`, `wape` e nº de
 previsões por modelo, no teste principal.
+
+**`sazonalidade.csv`**: `serie_id`, `mes`, `desvio_sazonal_pct` (quanto o preço daquele mês
+fica, em média, acima ou abaixo da média móvel de 12 meses).

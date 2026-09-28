@@ -130,7 +130,7 @@ def resumir_itens(precos: pd.DataFrame) -> pd.DataFrame:
         media_12_inicio=lambda s: s.iloc[:12].mean(),
         media_12_fim=lambda s: s.iloc[-12:].mean(),
     )
-    itens = itens.join(var)
+    itens = itens.join(var.round(3))
     # variação entre médias de 12 meses: anula sazonalidade. Só faz sentido em série ativa.
     itens["variacao_12m_pct"] = np.where(
         itens["ativa"],
