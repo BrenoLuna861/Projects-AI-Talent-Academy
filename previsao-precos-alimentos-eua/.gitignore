@@ -2,6 +2,7 @@
 data/raw/*
 data/interim/*
 data/processed/*
+!data/processed/powerbi/
 data/external/*
 !data/**/.gitkeep
 !data/**/README.md
