@@ -1,4 +1,4 @@
-# Acompanhamento 01 — 17/09/2026
+# Acompanhamento 01 - 17/09/2026
 
 **Integrantes:** Breno Luna e Paula Carlesso
 

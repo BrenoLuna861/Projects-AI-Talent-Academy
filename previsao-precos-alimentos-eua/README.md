@@ -143,6 +143,7 @@ Detalhe em [`docs/plano-de-atividades.md`](docs/plano-de-atividades.md).
 - **Média nacional**: esconde diferenças grandes entre regiões, marcas e tamanhos de embalagem.
 - A faixa de previsão no dashboard vem dos quantis do erro no teste. É uma referência prática, não um intervalo de confiança formal.
 - Granularidade limitada ao que o BLS publica: mensal e nacional. Não há dado semanal nem por região no dataset.
+- Os números acima são da execução registrada nos notebooks. Rodando com outra versão do Python ou das bibliotecas (scikit-learn, statsmodels), o gradient boosting e o SARIMA mudam um pouco e as métricas podem variar na segunda casa decimal.
 - A combinação GB + SARIMA foi escolhida depois de ver o backtest. Os mesmos 4 cortes serviram para escolher e para medir, então o ganho real tende a ser um pouco menor que 7%.
 - Quem define o preço é o mercado; o modelo só enxerga o histórico do próprio preço, da categoria e da gasolina. Choques como gripe aviária ou tarifas não estão nos dados.
 

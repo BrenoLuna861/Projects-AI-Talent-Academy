@@ -1,4 +1,4 @@
-# Acompanhamento NN — DD/MM/AAAA
+# Acompanhamento NN - DD/MM/AAAA
 
 **Integrantes:** Breno Luna e Paula Carlesso
 

@@ -1,89 +1,89 @@
 categoria,modelo,mape,wape,n
-Aves,combinado,1.465,1.356,45
-Aves,ets,1.62,1.473,45
-Aves,gradient_boosting,1.303,1.237,45
+Aves,combinado,1.445,1.335,45
+Aves,ets,1.622,1.477,45
+Aves,gradient_boosting,1.266,1.19,45
 Aves,ingenuo,1.202,1.178,45
-Aves,random_forest,1.107,1.064,45
+Aves,random_forest,1.107,1.063,45
 Aves,ridge,1.679,1.63,45
-Aves,sarima,1.724,1.552,45
+Aves,sarima,1.72,1.551,45
 Aves,sazonal_ingenuo,2.461,2.506,45
-Bebidas,combinado,2.16,1.907,60
+Bebidas,combinado,2.142,1.883,60
 Bebidas,ets,2.145,1.756,60
-Bebidas,gradient_boosting,2.591,2.225,60
+Bebidas,gradient_boosting,2.548,2.181,60
 Bebidas,ingenuo,2.558,1.716,60
-Bebidas,random_forest,2.39,1.927,60
+Bebidas,random_forest,2.391,1.928,60
 Bebidas,ridge,2.692,2.409,60
-Bebidas,sarima,1.874,1.692,60
+Bebidas,sarima,1.88,1.691,60
 Bebidas,sazonal_ingenuo,2.537,2.158,60
-Carne bovina,combinado,3.496,3.576,180
-Carne bovina,ets,3.871,4.001,180
-Carne bovina,gradient_boosting,3.508,3.583,180
+Carne bovina,combinado,3.501,3.58,180
+Carne bovina,ets,3.872,4.001,180
+Carne bovina,gradient_boosting,3.487,3.555,180
 Carne bovina,ingenuo,4.084,4.133,180
-Carne bovina,random_forest,3.342,3.411,180
+Carne bovina,random_forest,3.341,3.411,180
 Carne bovina,ridge,3.73,3.827,180
-Carne bovina,sarima,3.633,3.759,180
+Carne bovina,sarima,3.651,3.779,180
 Carne bovina,sazonal_ingenuo,4.008,4.193,180
-Energia,combinado,6.232,8.101,126
-Energia,ets,7.627,10.072,126
-Energia,gradient_boosting,6.699,8.734,126
+Energia,combinado,6.238,8.102,126
+Energia,ets,7.626,10.071,126
+Energia,gradient_boosting,6.691,8.717,126
 Energia,ingenuo,6.863,8.942,126
-Energia,random_forest,6.525,8.584,126
+Energia,random_forest,6.527,8.586,126
 Energia,ridge,6.92,8.788,126
-Energia,sarima,6.858,8.88,126
+Energia,sarima,6.912,8.972,126
 Energia,sazonal_ingenuo,8.229,10.436,126
-Frutas,combinado,3.708,3.656,69
+Frutas,combinado,3.709,3.674,69
 Frutas,ets,3.394,3.486,69
-Frutas,gradient_boosting,3.714,3.691,69
+Frutas,gradient_boosting,3.761,3.76,69
 Frutas,ingenuo,6.674,6.778,69
-Frutas,random_forest,4.646,4.59,69
+Frutas,random_forest,4.648,4.592,69
 Frutas,ridge,4.982,4.856,69
-Frutas,sarima,3.871,3.933,69
+Frutas,sarima,3.885,3.947,69
 Frutas,sazonal_ingenuo,4.671,4.685,69
-Hortaliças,combinado,5.196,5.89,48
+Hortaliças,combinado,5.181,5.858,48
 Hortaliças,ets,6.0,7.069,48
-Hortaliças,gradient_boosting,5.277,5.925,48
+Hortaliças,gradient_boosting,5.3,5.957,48
 Hortaliças,ingenuo,6.16,6.831,48
 Hortaliças,random_forest,5.393,5.948,48
 Hortaliças,ridge,5.792,6.475,48
-Hortaliças,sarima,5.408,6.188,48
+Hortaliças,sarima,5.406,6.181,48
 Hortaliças,sazonal_ingenuo,6.758,7.919,48
-Laticínios,combinado,3.325,3.298,105
+Laticínios,combinado,3.356,3.313,105
 Laticínios,ets,3.336,3.299,105
-Laticínios,gradient_boosting,3.324,3.281,105
+Laticínios,gradient_boosting,3.382,3.313,105
 Laticínios,ingenuo,3.2,3.158,105
-Laticínios,random_forest,3.283,3.233,105
+Laticínios,random_forest,3.284,3.234,105
 Laticínios,ridge,3.484,3.485,105
-Laticínios,sarima,3.476,3.43,105
+Laticínios,sarima,3.463,3.419,105
 Laticínios,sazonal_ingenuo,4.582,4.571,105
-Mercearia,combinado,3.192,3.979,45
-Mercearia,ets,2.99,3.565,45
-Mercearia,gradient_boosting,3.374,4.339,45
+Mercearia,combinado,3.112,3.869,45
+Mercearia,ets,2.992,3.565,45
+Mercearia,gradient_boosting,3.255,4.179,45
 Mercearia,ingenuo,3.528,4.091,45
-Mercearia,random_forest,3.213,3.893,45
+Mercearia,random_forest,3.214,3.894,45
 Mercearia,ridge,3.822,4.72,45
-Mercearia,sarima,3.147,3.793,45
+Mercearia,sarima,3.14,3.786,45
 Mercearia,sazonal_ingenuo,4.245,5.355,45
-Ovos,combinado,18.015,19.47,15
+Ovos,combinado,18.191,19.65,15
 Ovos,ets,20.443,22.042,15
-Ovos,gradient_boosting,18.656,19.585,15
+Ovos,gradient_boosting,19.153,20.134,15
 Ovos,ingenuo,22.246,24.129,15
-Ovos,random_forest,21.783,22.202,15
+Ovos,random_forest,21.785,22.204,15
 Ovos,ridge,23.905,23.823,15
-Ovos,sarima,21.134,23.031,15
+Ovos,sarima,21.129,23.021,15
 Ovos,sazonal_ingenuo,39.016,36.573,15
-Padaria e grãos,combinado,2.473,2.697,88
-Padaria e grãos,ets,2.433,2.72,88
-Padaria e grãos,gradient_boosting,2.483,2.704,88
+Padaria e grãos,combinado,2.451,2.679,88
+Padaria e grãos,ets,2.432,2.72,88
+Padaria e grãos,gradient_boosting,2.436,2.685,88
 Padaria e grãos,ingenuo,2.26,2.643,88
-Padaria e grãos,random_forest,2.451,2.774,88
+Padaria e grãos,random_forest,2.45,2.773,88
 Padaria e grãos,ridge,2.678,3.029,88
-Padaria e grãos,sarima,2.594,2.835,88
+Padaria e grãos,sarima,2.579,2.816,88
 Padaria e grãos,sazonal_ingenuo,3.542,4.348,88
-Suínos e frios,combinado,2.108,2.071,103
+Suínos e frios,combinado,2.105,2.069,103
 Suínos e frios,ets,2.337,2.316,103
-Suínos e frios,gradient_boosting,2.201,2.174,103
+Suínos e frios,gradient_boosting,2.194,2.173,103
 Suínos e frios,ingenuo,2.44,2.424,103
-Suínos e frios,random_forest,2.214,2.194,103
+Suínos e frios,random_forest,2.213,2.194,103
 Suínos e frios,ridge,2.497,2.513,103
-Suínos e frios,sarima,2.322,2.303,103
+Suínos e frios,sarima,2.311,2.294,103
 Suínos e frios,sazonal_ingenuo,2.865,2.826,103
