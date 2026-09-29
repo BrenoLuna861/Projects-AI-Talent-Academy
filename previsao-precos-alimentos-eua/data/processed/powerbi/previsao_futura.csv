@@ -1,60 +1,60 @@
 serie_id,item,item_pt,categoria,data_base,data_alvo,preco_base,modelo,horizonte_meses,preco_previsto,faixa_inferior,faixa_superior,variacao_prevista_pct
-APU0000702212,"Bread, whole wheat, pan",Pão de forma integral,Padaria e grãos,2026-05-01,2026-08-01,2.814,combinado,3,2.802,2.686,2.896,-0.42
-APU0000704211,"Chops, center cut, bone-in",Bisteca suína com osso,Suínos e frios,2026-05-01,2026-08-01,4.905,combinado,3,4.93,4.719,5.051,0.51
-APU0000711311,"Oranges, Navel",Laranja,Frutas,2026-06-01,2026-09-01,1.54,combinado,3,1.686,1.596,1.79,9.48
-APU0000701312,"Rice, white, long grain, uncooked",Arroz branco,Padaria e grãos,2026-07-01,2026-10-01,1.1,combinado,3,1.095,1.05,1.132,-0.41
-APU0000703112,"Ground beef, 100% beef",Carne moída,Carne bovina,2026-07-01,2026-10-01,6.885,combinado,3,6.91,6.715,7.398,0.36
-APU0000703511,"Steak, round, USDA Choice, boneless",Bife de coxão (Choice),Carne bovina,2026-07-01,2026-10-01,10.036,combinado,3,10.089,9.804,10.802,0.53
-APU0000703113,"Ground beef, lean and extra lean",Carne moída magra,Carne bovina,2026-07-01,2026-10-01,8.414,combinado,3,8.536,8.295,9.139,1.45
-APU0000703311,"Round roast, USDA Choice, boneless",Lagarto/coxão (Choice),Carne bovina,2026-07-01,2026-10-01,9.155,combinado,3,9.15,8.892,9.796,-0.06
-APU0000FD4101,All Other Pork (Excluding Canned Ham and Luncheon Slices),Outras carnes suínas,Suínos e frios,2026-07-01,2026-10-01,3.671,combinado,3,3.758,3.597,3.85,2.37
-APU0000712112,"Potatoes, white",Batata,Hortaliças,2026-07-01,2026-10-01,0.942,combinado,3,0.928,0.858,0.985,-1.49
-APU0000704312,"Ham, boneless, excluding canned",Presunto sem osso,Suínos e frios,2026-07-01,2026-10-01,5.492,combinado,3,5.488,5.253,5.623,-0.07
-APU0000710411,"Ice cream, prepackaged, bulk, regular",Sorvete,Laticínios,2026-07-01,2026-10-01,5.836,combinado,3,5.945,5.58,6.142,1.86
-APU0000718311,Potato chips,Batata chips,Mercearia,2026-07-01,2026-10-01,6.559,combinado,3,6.66,6.437,7.198,1.54
-APU0000711412,Lemons,Limão,Frutas,2026-07-01,2026-10-01,2.127,combinado,3,2.144,2.03,2.276,0.78
-APU0000720111,"Malt beverages, all types, all sizes, any origin",Cerveja,Bebidas,2026-07-01,2026-10-01,1.878,combinado,3,1.888,1.829,1.965,0.55
-APU0000713111,"Orange juice, frozen concentrate, 12 oz. can",Suco de laranja concentrado,Frutas,2026-07-01,2026-10-01,4.817,combinado,3,4.862,4.603,5.161,0.94
-APU0000703613,"Steak, sirloin, USDA Choice, boneless",Contrafilé/alcatra (sirloin),Carne bovina,2026-07-01,2026-10-01,14.592,combinado,3,14.574,14.163,15.603,-0.12
-APU0000709112,"Milk, fresh, whole, fortified",Leite integral,Laticínios,2026-07-01,2026-10-01,4.313,combinado,3,4.313,4.048,4.456,-0.01
-APU0000FJ1101,"Milk, fresh, low-fat, reduced fat, skim",Leite desnatado/semidesnatado,Laticínios,2026-07-01,2026-10-01,3.8,combinado,3,3.799,3.566,3.925,-0.02
-APU0000703111,"Ground chuck, 100% beef",Carne moída (acém),Carne bovina,2026-07-01,2026-10-01,6.85,combinado,3,6.835,6.642,7.318,-0.22
-APU0000711415,"Strawberries, dry pint",Morango,Frutas,2026-07-01,2026-10-01,2.404,combinado,3,2.889,2.735,3.067,20.18
-APU0000FN1101,All soft drinks,Refrigerante (2 L),Bebidas,2026-07-01,2026-10-01,2.265,combinado,3,2.27,2.2,2.362,0.22
-APU000074716,"Gasoline, unleaded premium",Gasolina premium,Energia,2026-07-01,2026-10-01,5.027,combinado,3,4.835,4.594,6.247,-3.81
-APU0000FF1101,"Chicken breast, boneless",Peito de frango,Aves,2026-07-01,2026-10-01,4.153,combinado,3,4.169,4.066,4.214,0.39
-APU0000710212,"Cheddar cheese, natural",Queijo cheddar,Laticínios,2026-07-01,2026-10-01,5.741,combinado,3,5.827,5.469,6.02,1.49
-APU0000FS1101,"Butter, stick",Manteiga,Laticínios,2026-07-01,2026-10-01,3.922,combinado,3,4.022,3.775,4.155,2.54
-APU0000702111,"Bread, white, pan",Pão de forma branco,Padaria e grãos,2026-07-01,2026-10-01,1.82,combinado,3,1.825,1.749,1.886,0.28
-APU0000703432,"Beef for stew, boneless",Carne para ensopado,Carne bovina,2026-07-01,2026-10-01,9.025,combinado,3,9.056,8.801,9.696,0.34
-APU0000714233,"Beans, dried, any type, all sizes",Feijão,Hortaliças,2026-07-01,2026-10-01,1.689,combinado,3,1.682,1.555,1.785,-0.41
-APU0000720311,"Wine, red and white table, all sizes, any origin",Vinho,Bebidas,2026-07-01,2026-10-01,13.794,combinado,3,13.849,13.419,14.412,0.4
-APU000072620,Utility (piped) gas,Gás encanado,Energia,2026-07-01,2026-10-01,1.704,combinado,3,1.696,1.612,2.191,-0.5
-APU0000711211,Bananas,Banana,Frutas,2026-07-01,2026-10-01,0.65,combinado,3,0.65,0.615,0.69,-0.07
-APU0000704111,"Bacon, sliced",Bacon fatiado,Suínos e frios,2026-07-01,2026-10-01,6.584,combinado,3,6.707,6.42,6.871,1.86
-APU000074717,Automotive diesel fuel,Diesel,Energia,2026-07-01,2026-10-01,5.077,combinado,3,4.636,4.405,5.99,-8.68
-APU0000710211,American processed cheese,Queijo processado,Laticínios,2026-07-01,2026-10-01,4.746,combinado,3,4.758,4.466,4.916,0.25
-APU0000FC1101,All uncooked ground beef,Carne moída (todas),Carne bovina,2026-07-01,2026-10-01,7.116,combinado,3,7.103,6.903,7.605,-0.18
-APU0000FC4101,All Uncooked Other Beef (Excluding Veal),Outras carnes bovinas,Carne bovina,2026-07-01,2026-10-01,8.009,combinado,3,8.019,7.793,8.585,0.12
-APU0000FN1102,"All soft drinks, 12 pk, 12 oz., cans",Refrigerante (lata),Bebidas,2026-07-01,2026-10-01,0.606,combinado,3,0.61,0.591,0.635,0.62
-APU0000706212,"Chicken legs, bone-in",Coxa de frango,Aves,2026-07-01,2026-10-01,1.723,combinado,3,1.727,1.684,1.746,0.26
-APU000074714,"Gasoline, unleaded regular",Gasolina comum,Energia,2026-07-01,2026-10-01,4.094,combinado,3,3.857,3.665,4.983,-5.8
-APU0000712311,"Tomatoes, field grown",Tomate,Hortaliças,2026-07-01,2026-10-01,2.003,combinado,3,1.952,1.805,2.072,-2.56
-APU0000706111,"Chicken, fresh, whole",Frango inteiro,Aves,2026-07-01,2026-10-01,2.005,combinado,3,1.995,1.946,2.016,-0.5
-APU000074715,"Gasoline, unleaded midgrade",Gasolina aditivada,Energia,2026-07-01,2026-10-01,4.583,combinado,3,4.388,4.169,5.669,-4.25
-APU0000FD3101,All Pork Chops,Bisteca suína (todas),Suínos e frios,2026-07-01,2026-10-01,4.244,combinado,3,4.231,4.05,4.335,-0.31
-APU00007471A,"Gasoline, all types",Gasolina (todos os tipos),Energia,2026-07-01,2026-10-01,4.242,combinado,3,4.047,3.845,5.229,-4.59
-APU0000FD2101,All Ham (Excluding Canned Ham and Luncheon Slices),Presunto (todos),Suínos e frios,2026-07-01,2026-10-01,4.489,combinado,3,4.5,4.307,4.61,0.24
-APU000072511,Fuel oil #2,Óleo combustível (aquecimento),Energia,2026-07-01,2026-10-01,4.799,combinado,3,4.751,4.514,6.138,-0.99
-APU0000701111,"Flour, white, all purpose",Farinha de trigo,Padaria e grãos,2026-07-01,2026-10-01,0.543,combinado,3,0.539,0.517,0.557,-0.78
-APU000072610,Electricity,Energia elétrica (kWh),Energia,2026-07-01,2026-10-01,0.197,combinado,3,0.195,0.185,0.252,-1.07
-APU0000715211,"Sugar, white, all sizes",Açúcar,Mercearia,2026-07-01,2026-10-01,1.024,combinado,3,1.022,0.988,1.105,-0.17
-APU0000FC2101,All Uncooked Beef Roasts,Carnes para assar (todas),Carne bovina,2026-07-01,2026-10-01,9.571,combinado,3,9.56,9.29,10.235,-0.11
-APU0000708111,"Eggs, grade A, large",Ovos (dúzia),Ovos,2026-07-01,2026-10-01,2.189,combinado,3,2.266,1.695,2.386,3.52
-APU0000702421,"Cookies, chocolate chip",Cookies de chocolate,Padaria e grãos,2026-07-01,2026-10-01,5.008,combinado,3,5.013,4.805,5.181,0.11
-APU0000701322,Spaghetti and macaroni,Macarrão,Padaria e grãos,2026-07-01,2026-10-01,1.381,combinado,3,1.356,1.3,1.402,-1.78
-APU0000717311,"Coffee, 100%, ground roast, all sizes",Café moído,Mercearia,2026-07-01,2026-10-01,9.317,combinado,3,9.39,9.075,10.148,0.79
-APU0000703213,"Chuck roast, USDA Choice, boneless",Acém (Choice),Carne bovina,2026-07-01,2026-10-01,9.631,combinado,3,9.517,9.249,10.189,-1.18
-APU0000704212,"Chops, boneless",Bisteca suína sem osso,Suínos e frios,2026-07-01,2026-10-01,4.573,combinado,3,4.55,4.355,4.662,-0.51
-APU0000FC3101,All Uncooked Beef Steaks,Bifes bovinos (todos),Carne bovina,2026-07-01,2026-10-01,13.064,combinado,3,13.02,12.653,13.94,-0.34
-APU0000FJ4101,Yogurt,Iogurte,Laticínios,2026-07-01,2026-10-01,1.553,combinado,3,1.555,1.46,1.607,0.14
+APU0000702212,"Bread, whole wheat, pan",Pão de forma integral,Padaria e grãos,2026-05-01,2026-08-01,2.814,combinado,3,2.807,2.686,2.897,-0.25
+APU0000704211,"Chops, center cut, bone-in",Bisteca suína com osso,Suínos e frios,2026-05-01,2026-08-01,4.905,combinado,3,4.928,4.715,5.057,0.47
+APU0000711311,"Oranges, Navel",Laranja,Frutas,2026-06-01,2026-09-01,1.54,combinado,3,1.686,1.603,1.791,9.5
+APU0000701312,"Rice, white, long grain, uncooked",Arroz branco,Padaria e grãos,2026-07-01,2026-10-01,1.1,combinado,3,1.095,1.048,1.13,-0.48
+APU0000703112,"Ground beef, 100% beef",Carne moída,Carne bovina,2026-07-01,2026-10-01,6.885,combinado,3,6.882,6.684,7.362,-0.05
+APU0000703511,"Steak, round, USDA Choice, boneless",Bife de coxão (Choice),Carne bovina,2026-07-01,2026-10-01,10.036,combinado,3,10.067,9.777,10.77,0.31
+APU0000703113,"Ground beef, lean and extra lean",Carne moída magra,Carne bovina,2026-07-01,2026-10-01,8.414,combinado,3,8.551,8.304,9.148,1.63
+APU0000703311,"Round roast, USDA Choice, boneless",Lagarto/coxão (Choice),Carne bovina,2026-07-01,2026-10-01,9.155,combinado,3,9.169,8.905,9.809,0.15
+APU0000FD4101,All Other Pork (Excluding Canned Ham and Luncheon Slices),Outras carnes suínas,Suínos e frios,2026-07-01,2026-10-01,3.671,combinado,3,3.764,3.601,3.863,2.53
+APU0000712112,"Potatoes, white",Batata,Hortaliças,2026-07-01,2026-10-01,0.942,combinado,3,0.927,0.856,0.986,-1.58
+APU0000704312,"Ham, boneless, excluding canned",Presunto sem osso,Suínos e frios,2026-07-01,2026-10-01,5.492,combinado,3,5.489,5.251,5.633,-0.05
+APU0000710411,"Ice cream, prepackaged, bulk, regular",Sorvete,Laticínios,2026-07-01,2026-10-01,5.836,combinado,3,5.947,5.585,6.146,1.89
+APU0000718311,Potato chips,Batata chips,Mercearia,2026-07-01,2026-10-01,6.559,combinado,3,6.669,6.437,7.219,1.68
+APU0000711412,Lemons,Limão,Frutas,2026-07-01,2026-10-01,2.127,combinado,3,2.141,2.036,2.274,0.64
+APU0000720111,"Malt beverages, all types, all sizes, any origin",Cerveja,Bebidas,2026-07-01,2026-10-01,1.878,combinado,3,1.887,1.829,1.979,0.48
+APU0000713111,"Orange juice, frozen concentrate, 12 oz. can",Suco de laranja concentrado,Frutas,2026-07-01,2026-10-01,4.817,combinado,3,4.87,4.631,5.173,1.09
+APU0000703613,"Steak, sirloin, USDA Choice, boneless",Contrafilé/alcatra (sirloin),Carne bovina,2026-07-01,2026-10-01,14.592,combinado,3,14.585,14.164,15.603,-0.05
+APU0000709112,"Milk, fresh, whole, fortified",Leite integral,Laticínios,2026-07-01,2026-10-01,4.313,combinado,3,4.314,4.051,4.458,0.03
+APU0000FJ1101,"Milk, fresh, low-fat, reduced fat, skim",Leite desnatado/semidesnatado,Laticínios,2026-07-01,2026-10-01,3.8,combinado,3,3.808,3.576,3.935,0.22
+APU0000703111,"Ground chuck, 100% beef",Carne moída (acém),Carne bovina,2026-07-01,2026-10-01,6.85,combinado,3,6.842,6.645,7.319,-0.12
+APU0000711415,"Strawberries, dry pint",Morango,Frutas,2026-07-01,2026-10-01,2.404,combinado,3,2.886,2.744,3.065,20.04
+APU0000FN1101,All soft drinks,Refrigerante (2 L),Bebidas,2026-07-01,2026-10-01,2.265,combinado,3,2.271,2.201,2.381,0.27
+APU000074716,"Gasoline, unleaded premium",Gasolina premium,Energia,2026-07-01,2026-10-01,5.027,combinado,3,4.823,4.582,6.211,-4.07
+APU0000FF1101,"Chicken breast, boneless",Peito de frango,Aves,2026-07-01,2026-10-01,4.153,combinado,3,4.175,4.069,4.224,0.53
+APU0000710212,"Cheddar cheese, natural",Queijo cheddar,Laticínios,2026-07-01,2026-10-01,5.741,combinado,3,5.837,5.481,6.032,1.67
+APU0000FS1101,"Butter, stick",Manteiga,Laticínios,2026-07-01,2026-10-01,3.922,combinado,3,4.019,3.774,4.153,2.47
+APU0000702111,"Bread, white, pan",Pão de forma branco,Padaria e grãos,2026-07-01,2026-10-01,1.82,combinado,3,1.824,1.745,1.882,0.22
+APU0000703432,"Beef for stew, boneless",Carne para ensopado,Carne bovina,2026-07-01,2026-10-01,9.025,combinado,3,9.068,8.806,9.701,0.48
+APU0000714233,"Beans, dried, any type, all sizes",Feijão,Hortaliças,2026-07-01,2026-10-01,1.689,combinado,3,1.678,1.55,1.785,-0.66
+APU0000720311,"Wine, red and white table, all sizes, any origin",Vinho,Bebidas,2026-07-01,2026-10-01,13.794,combinado,3,13.854,13.426,14.527,0.44
+APU000072620,Utility (piped) gas,Gás encanado,Energia,2026-07-01,2026-10-01,1.704,combinado,3,1.698,1.613,2.187,-0.36
+APU0000711211,Bananas,Banana,Frutas,2026-07-01,2026-10-01,0.65,combinado,3,0.649,0.617,0.689,-0.12
+APU0000704111,"Bacon, sliced",Bacon fatiado,Suínos e frios,2026-07-01,2026-10-01,6.584,combinado,3,6.704,6.414,6.88,1.83
+APU000074717,Automotive diesel fuel,Diesel,Energia,2026-07-01,2026-10-01,5.077,combinado,3,4.663,4.43,6.005,-8.16
+APU0000710211,American processed cheese,Queijo processado,Laticínios,2026-07-01,2026-10-01,4.746,combinado,3,4.754,4.464,4.913,0.17
+APU0000FC1101,All uncooked ground beef,Carne moída (todas),Carne bovina,2026-07-01,2026-10-01,7.116,combinado,3,7.101,6.896,7.597,-0.21
+APU0000FC4101,All Uncooked Other Beef (Excluding Veal),Outras carnes bovinas,Carne bovina,2026-07-01,2026-10-01,8.009,combinado,3,8.024,7.793,8.584,0.19
+APU0000FN1102,"All soft drinks, 12 pk, 12 oz., cans",Refrigerante (lata),Bebidas,2026-07-01,2026-10-01,0.606,combinado,3,0.61,0.591,0.64,0.64
+APU0000706212,"Chicken legs, bone-in",Coxa de frango,Aves,2026-07-01,2026-10-01,1.723,combinado,3,1.727,1.683,1.747,0.21
+APU000074714,"Gasoline, unleaded regular",Gasolina comum,Energia,2026-07-01,2026-10-01,4.094,combinado,3,3.853,3.661,4.962,-5.88
+APU0000712311,"Tomatoes, field grown",Tomate,Hortaliças,2026-07-01,2026-10-01,2.003,combinado,3,1.95,1.801,2.074,-2.62
+APU0000706111,"Chicken, fresh, whole",Frango inteiro,Aves,2026-07-01,2026-10-01,2.005,combinado,3,1.999,1.948,2.022,-0.32
+APU000074715,"Gasoline, unleaded midgrade",Gasolina aditivada,Energia,2026-07-01,2026-10-01,4.583,combinado,3,4.405,4.185,5.673,-3.88
+APU0000FD3101,All Pork Chops,Bisteca suína (todas),Suínos e frios,2026-07-01,2026-10-01,4.244,combinado,3,4.237,4.053,4.348,-0.16
+APU00007471A,"Gasoline, all types",Gasolina (todos os tipos),Energia,2026-07-01,2026-10-01,4.242,combinado,3,4.07,3.867,5.242,-4.06
+APU0000FD2101,All Ham (Excluding Canned Ham and Luncheon Slices),Presunto (todos),Suínos e frios,2026-07-01,2026-10-01,4.489,combinado,3,4.5,4.305,4.618,0.25
+APU000072511,Fuel oil #2,Óleo combustível (aquecimento),Energia,2026-07-01,2026-10-01,4.799,combinado,3,4.735,4.498,6.098,-1.32
+APU0000701111,"Flour, white, all purpose",Farinha de trigo,Padaria e grãos,2026-07-01,2026-10-01,0.543,combinado,3,0.539,0.516,0.556,-0.66
+APU000072610,Electricity,Energia elétrica (kWh),Energia,2026-07-01,2026-10-01,0.197,combinado,3,0.196,0.186,0.252,-0.55
+APU0000715211,"Sugar, white, all sizes",Açúcar,Mercearia,2026-07-01,2026-10-01,1.024,combinado,3,1.022,0.986,1.106,-0.16
+APU0000FC2101,All Uncooked Beef Roasts,Carnes para assar (todas),Carne bovina,2026-07-01,2026-10-01,9.571,combinado,3,9.535,9.26,10.2,-0.37
+APU0000708111,"Eggs, grade A, large",Ovos (dúzia),Ovos,2026-07-01,2026-10-01,2.189,combinado,3,2.246,1.696,2.365,2.59
+APU0000702421,"Cookies, chocolate chip",Cookies de chocolate,Padaria e grãos,2026-07-01,2026-10-01,5.008,combinado,3,5.013,4.796,5.174,0.1
+APU0000701322,Spaghetti and macaroni,Macarrão,Padaria e grãos,2026-07-01,2026-10-01,1.381,combinado,3,1.357,1.298,1.401,-1.71
+APU0000717311,"Coffee, 100%, ground roast, all sizes",Café moído,Mercearia,2026-07-01,2026-10-01,9.317,combinado,3,9.394,9.067,10.168,0.83
+APU0000703213,"Chuck roast, USDA Choice, boneless",Acém (Choice),Carne bovina,2026-07-01,2026-10-01,9.631,combinado,3,9.514,9.24,10.178,-1.21
+APU0000704212,"Chops, boneless",Bisteca suína sem osso,Suínos e frios,2026-07-01,2026-10-01,4.573,combinado,3,4.551,4.354,4.67,-0.47
+APU0000FC3101,All Uncooked Beef Steaks,Bifes bovinos (todos),Carne bovina,2026-07-01,2026-10-01,13.064,combinado,3,13.008,12.633,13.916,-0.43
+APU0000FJ4101,Yogurt,Iogurte,Laticínios,2026-07-01,2026-10-01,1.553,combinado,3,1.558,1.463,1.61,0.34
