@@ -1,0 +1,142 @@
+{
+  "name": "TemaWhiteCube.json",
+  "dataColors": [
+    "#0F2A5C",
+    "#2F80ED",
+    "#E53935",
+    "#9AA0A6",
+    "#7FA7D9",
+    "#B71C1C",
+    "#0B1B3A",
+    "#C5D3E8",
+    "#F28B82",
+    "#6C7A89"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#14284B",
+  "tableAccent": "#1F5FBF",
+  "good": "#27AE60",
+  "neutral": "#F2C94C",
+  "bad": "#EB5757",
+  "textClasses": {
+    "callout": {
+      "fontFace": "Segoe UI Bold",
+      "color": "#0F2A5C"
+    },
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#0F2A5C",
+      "fontSize": 12
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "color": "#14284B",
+      "fontSize": 11
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "color": "#5B6778",
+      "fontSize": 10
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#E3E8F0"
+              }
+            },
+            "radius": 10,
+            "width": 1
+          }
+        ],
+        "dropShadow": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#0F2A5C"
+              }
+            },
+            "transparency": 90,
+            "position": "Outer",
+            "preset": "Custom",
+            "shadowSpread": 0,
+            "shadowBlur": 10,
+            "angle": 90,
+            "shadowDistance": 2
+          }
+        ],
+        "padding": [
+          {
+            "top": 10,
+            "bottom": 10,
+            "left": 14,
+            "right": 14
+          }
+        ],
+        "title": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#0F2A5C"
+              }
+            },
+            "fontSize": 12,
+            "bold": true,
+            "fontFamily": "Segoe UI"
+          }
+        ],
+        "subTitle": [
+          {
+            "fontColor": {
+              "solid": {
+                "color": "#5B6778"
+              }
+            },
+            "fontSize": 9
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F3F5F9"
+              }
+            },
+            "transparency": 0
+          }
+        ],
+        "outspace": [
+          {
+            "color": {
+              "solid": {
+                "color": "#F3F5F9"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    }
+  }
+}

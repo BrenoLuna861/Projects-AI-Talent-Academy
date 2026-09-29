@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "aa5e0541f8fcc185c24a",
+  "name": "7433c8bcb8eb82c5f426",
   "position": {
     "x": 12,
-    "y": 108,
-    "z": 92000,
+    "y": 208,
+    "z": 95000,
     "width": 156,
     "height": 42,
-    "tabOrder": 92000
+    "tabOrder": 95000
   },
   "visual": {
     "visualType": "actionButton",
@@ -41,7 +41,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Panorama'"
+                  "Value": "'Previsão'"
                 }
               }
             },
@@ -66,7 +66,7 @@
             "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "true"
                 }
               }
             },
@@ -112,7 +112,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#0F2A5C'"
+                      "Value": "'#1F5FBF'"
                     }
                   }
                 }
@@ -144,7 +144,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#1C4585'"
+                      "Value": "'#1F5FBF'"
                     }
                   }
                 }
@@ -260,14 +260,14 @@
             "navigationSection": {
               "expr": {
                 "Literal": {
-                  "Value": "'baedb81dca5c20b34bbc'"
+                  "Value": "'db793f7699637e472a54'"
                 }
               }
             },
             "tooltip": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ir para Panorama'"
+                  "Value": "'Ir para Previsão'"
                 }
               }
             }

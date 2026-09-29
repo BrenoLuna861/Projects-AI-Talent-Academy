@@ -131,7 +131,7 @@
                           "min": {
                             "color": {
                               "Literal": {
-                                "Value": "'#2B6CB0'"
+                                "Value": "'#1F5FBF'"
                               }
                             }
                           },
@@ -150,7 +150,7 @@
                           "max": {
                             "color": {
                               "Literal": {
-                                "Value": "'#C0392B'"
+                                "Value": "'#E53935'"
                               }
                             }
                           },

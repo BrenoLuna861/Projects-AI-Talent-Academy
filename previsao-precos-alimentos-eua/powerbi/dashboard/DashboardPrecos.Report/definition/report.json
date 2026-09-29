@@ -11,7 +11,7 @@
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "TemaPrecos.json",
+      "name": "TemaWhiteCube.json",
       "reportVersionAtImport": {
         "visual": "2.11.0",
         "report": "3.4.0",
@@ -37,8 +37,8 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "TemaPrecos.json",
-          "path": "TemaPrecos.json",
+          "name": "TemaWhiteCube.json",
+          "path": "TemaWhiteCube.json",
           "type": "CustomTheme"
         },
         {

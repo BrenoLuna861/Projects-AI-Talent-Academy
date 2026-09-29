@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
-  "name": "aa5e0541f8fcc185c24a",
+  "name": "874d07ec2050218c5ae6",
   "position": {
     "x": 12,
-    "y": 108,
-    "z": 92000,
+    "y": 258,
+    "z": 96000,
     "width": 156,
     "height": 42,
-    "tabOrder": 92000
+    "tabOrder": 96000
   },
   "visual": {
     "visualType": "actionButton",
@@ -41,7 +41,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Panorama'"
+                  "Value": "'Confiabilidade'"
                 }
               }
             },
@@ -260,14 +260,14 @@
             "navigationSection": {
               "expr": {
                 "Literal": {
-                  "Value": "'baedb81dca5c20b34bbc'"
+                  "Value": "'f354136aaf79a7bcdd3b'"
                 }
               }
             },
             "tooltip": {
               "expr": {
                 "Literal": {
-                  "Value": "'Ir para Panorama'"
+                  "Value": "'Ir para Confiabilidade'"
                 }
               }
             }

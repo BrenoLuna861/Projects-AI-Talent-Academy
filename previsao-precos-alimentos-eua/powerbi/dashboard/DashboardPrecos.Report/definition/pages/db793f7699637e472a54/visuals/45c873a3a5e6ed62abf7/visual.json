@@ -114,7 +114,7 @@
                           "max": {
                             "color": {
                               "Literal": {
-                                "Value": "'#F2994A'"
+                                "Value": "'#E53935'"
                               }
                             }
                           },
@@ -254,7 +254,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Azul: queda. Laranja: alta'"
+                  "Value": "'Azul: queda. Vermelho: alta'"
                 }
               }
             },
