@@ -1,0 +1,4 @@
+expression PastaDados = "C:\Users\edmil\Documents\Projects-AI-Talent-Academy\previsao-precos-alimentos-eua\data\processed\powerbi\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 0892cffc-b38f-5a3a-bd79-ed3c77830f1f
+
+	annotation PBI_ResultType = Text

@@ -1,0 +1,126 @@
+table previsao_futura
+	lineageTag: 78fdcc57-9a02-5c86-b147-75adbe87c30f
+
+	column serie_id
+		dataType: string
+		isHidden
+		lineageTag: 31088634-4c88-5da3-8d98-7d0a6a84a818
+		summarizeBy: none
+		sourceColumn: serie_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item
+		dataType: string
+		lineageTag: e6b757dd-9bc9-5696-bfd1-ba24e22bf747
+		summarizeBy: none
+		sourceColumn: item
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_pt
+		dataType: string
+		lineageTag: 785d88c4-db6c-57f7-8e6f-58b4f8d893ca
+		summarizeBy: none
+		sourceColumn: item_pt
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria
+		dataType: string
+		lineageTag: 3a606eae-8a9e-5af1-a49c-873f5692e99d
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_base
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 52572af4-34c4-5e5b-a061-19b5e3b3abdd
+		summarizeBy: none
+		sourceColumn: data_base
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column data_alvo
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: eeec9236-0f7d-5cbf-9f0f-5aa66ca7cca5
+		summarizeBy: none
+		sourceColumn: data_alvo
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column preco_base
+		dataType: double
+		lineageTag: 31f7b53b-f8ea-50f3-9088-98b3678bb2d0
+		summarizeBy: none
+		sourceColumn: preco_base
+
+		annotation SummarizationSetBy = Automatic
+
+	column modelo
+		dataType: string
+		lineageTag: 489439ae-cfd6-5be4-bd0f-c1d85726a9e6
+		summarizeBy: none
+		sourceColumn: modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column horizonte_meses
+		dataType: int64
+		formatString: 0
+		lineageTag: f42f3891-0c90-5d1c-bc74-ddaf9961ea55
+		summarizeBy: none
+		sourceColumn: horizonte_meses
+
+		annotation SummarizationSetBy = Automatic
+
+	column preco_previsto
+		dataType: double
+		lineageTag: a0c0c957-f0c2-5ff1-9a5e-ca85fb070198
+		summarizeBy: none
+		sourceColumn: preco_previsto
+
+		annotation SummarizationSetBy = Automatic
+
+	column faixa_inferior
+		dataType: double
+		lineageTag: eb402d51-af77-5c8a-af36-d920c8a03d0b
+		summarizeBy: none
+		sourceColumn: faixa_inferior
+
+		annotation SummarizationSetBy = Automatic
+
+	column faixa_superior
+		dataType: double
+		lineageTag: 6e21d6d2-28f4-5197-886a-4f9ae058d80c
+		summarizeBy: none
+		sourceColumn: faixa_superior
+
+		annotation SummarizationSetBy = Automatic
+
+	column variacao_prevista_pct
+		dataType: double
+		lineageTag: bb52e476-5df2-507f-9be7-e48abc2f1753
+		summarizeBy: none
+		sourceColumn: variacao_prevista_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition previsao_futura = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "previsao_futura.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"serie_id", type text}, {"item", type text}, {"item_pt", type text}, {"categoria", type text}, {"data_base", type date}, {"data_alvo", type date}, {"preco_base", type number}, {"modelo", type text}, {"horizonte_meses", Int64.Type}, {"preco_previsto", type number}, {"faixa_inferior", type number}, {"faixa_superior", type number}, {"variacao_prevista_pct", type number}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

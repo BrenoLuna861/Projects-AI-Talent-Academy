@@ -46,6 +46,10 @@ dentro da própria tabela).
 
 Filtrar a categoria sempre por `dim_item[categoria]`, que já vem corrigida.
 
+## O que vai em cada página
+
+[`roteiro-dashboard.md`](roteiro-dashboard.md), card por card, com os valores esperados para conferir.
+
 ## Medidas
 
 Todas em [`medidas.dax`](medidas.dax). As páginas e indicadores estão descritos em

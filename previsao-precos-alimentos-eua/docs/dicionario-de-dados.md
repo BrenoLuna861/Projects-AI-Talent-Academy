@@ -42,6 +42,7 @@ Uma linha por série.
 | `meses_publicados` | Meses com preço real |
 | `meses_na_grade`, `meses_faltando` | Tamanho da grade e quantos meses o BLS não publicou |
 | `ativa` | Publicada até 2 meses antes do último mês da base |
+| `item_pt` | Nome curto em português, para exibir no dashboard. Só no `dim_item.csv` e no `previsao_futura.csv` |
 | `serie_agregada` | Série "All ..." que agrega outras (ex.: All Uncooked Beef Steaks) |
 | `media_12_inicio`, `media_12_fim` | Média dos 12 primeiros e 12 últimos meses |
 | `variacao_12m_pct` | Variação entre as duas médias; vazio para série inativa |

@@ -1,0 +1,22 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["PastaDados", "dim_item", "fato_precos", "previsao_futura", "previsoes_teste", "metricas_modelos", "metricas_por_categoria", "metricas_por_item", "sazonalidade"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+ref table dim_item
+ref table fato_precos
+ref table previsao_futura
+ref table previsoes_teste
+ref table metricas_modelos
+ref table metricas_por_categoria
+ref table metricas_por_item
+ref table sazonalidade
+ref table dCalendario
+ref table _Medidas

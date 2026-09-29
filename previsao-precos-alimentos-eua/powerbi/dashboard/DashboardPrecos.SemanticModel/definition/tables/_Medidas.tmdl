@@ -1,0 +1,174 @@
+table _Medidas
+	lineageTag: f56a730f-fb12-5662-90b0-01987d9dabf0
+
+	measure 'Preco Medio' = AVERAGE(fato_precos[preco])
+		formatString: 0.00
+		lineageTag: d8ffad8b-da4a-5ed6-ac7d-ac78c4f68577
+
+	measure 'Indice 2019' = ```
+			VAR base2019 =
+			    CALCULATE(AVERAGE(fato_precos[preco]), REMOVEFILTERS(dCalendario), dCalendario[ano] = 2019)
+			RETURN
+			    DIVIDE([Preco Medio], base2019) * 100
+			```
+		formatString: 0
+		lineageTag: 226e832b-77d6-5279-8acb-406ec9d674e8
+
+	measure 'Indice 2019 Mediana Categoria' = MEDIANX(VALUES(dim_item[serie_id]), [Indice 2019])
+		formatString: 0
+		lineageTag: 60fa82bd-2692-5b11-8e31-f5ae9c0fc826
+
+	measure 'Itens Ativos' = CALCULATE(COUNTROWS(dim_item), dim_item[ativa] = TRUE())
+		formatString: 0
+		lineageTag: 28a85569-cd86-5058-a911-efac096d675a
+
+	measure 'Variacao Mediana Periodo' = DIVIDE(MEDIAN(dim_item[variacao_12m_pct]), 100)
+		formatString: 0.0%
+		lineageTag: 1fb7e612-1004-5ef1-89ef-f4fc5c04078b
+
+	measure 'Itens Acima da Inflacao' = CALCULATE(COUNTROWS(dim_item), dim_item[variacao_12m_pct] > 35)
+		formatString: 0
+		lineageTag: 8ec28d51-4de1-5587-bcdf-dee2674f6f49
+
+	measure 'Maior Alta' = ```
+			VAR topo =
+			    TOPN(1, FILTER(dim_item, NOT ISBLANK(dim_item[variacao_12m_pct])), dim_item[variacao_12m_pct], DESC)
+			RETURN
+			    MAXX(topo, dim_item[item_pt] & " (+" & FORMAT(dim_item[variacao_12m_pct] / 100, "0.0%") & ")")
+			```
+		lineageTag: 964b177a-951c-5403-b7cf-e5106088a150
+
+	measure 'Media 12m Inicio' = CALCULATE(AVERAGE(dim_item[media_12_inicio]), dim_item[ativa] = TRUE())
+		formatString: 0.00
+		lineageTag: aa47a4d6-7120-5c93-84f1-13babf91a6fa
+
+	measure 'Media 12m Fim' = CALCULATE(AVERAGE(dim_item[media_12_fim]), dim_item[ativa] = TRUE())
+		formatString: 0.00
+		lineageTag: a28175ee-950e-5dad-bddb-9deac8eb23fb
+
+	measure 'Alta no Periodo' = CALCULATE(DIVIDE(AVERAGE(dim_item[variacao_12m_pct]), 100), dim_item[ativa] = TRUE())
+		formatString: 0.0%
+		lineageTag: 1109141a-5ed6-59a5-999b-824d6d1320a4
+
+	measure 'Volatilidade Mensal' = DIVIDE(AVERAGE(dim_item[vol_mensal_pct]), 100)
+		formatString: 0.0%
+		lineageTag: e9b358cf-bc0c-57ed-ac4f-d871a0a9f382
+
+	measure 'Volatilidade Top 10' = ```
+			VAR posicao = RANKX(ALLSELECTED(dim_item[item_pt]), [Volatilidade Mensal], , DESC)
+			RETURN
+			    IF(posicao <= 10, [Volatilidade Mensal])
+			```
+		formatString: 0.0%
+		lineageTag: dcc9b19d-d0d5-55bf-9c9f-184d0bb30ed5
+
+	measure 'Forca Tendencia' = AVERAGE(dim_item[forca_tendencia])
+		formatString: 0.00
+		lineageTag: fabcf4b5-2f54-57a3-97ee-8ae3059b0862
+
+	measure 'Forca Sazonalidade' = AVERAGE(dim_item[forca_sazonalidade])
+		formatString: 0.00
+		lineageTag: 140249b3-0d9f-57b4-943e-86e609decbf7
+
+	measure 'Desvio Sazonal' = DIVIDE(AVERAGE(sazonalidade[desvio_sazonal_pct]), 100)
+		formatString: 0.0%
+		lineageTag: 306a2271-b6c5-5e22-adf9-cd226406bfde
+
+	measure 'Preco Atual' = AVERAGE(previsao_futura[preco_base])
+		formatString: 0.00
+		lineageTag: 73a6d94e-65a7-5766-b433-b0a2b20cd52d
+
+	measure 'Preco Previsto' = AVERAGE(previsao_futura[preco_previsto])
+		formatString: 0.00
+		lineageTag: 84df9662-1828-583f-a6d7-1e247a6454ea
+
+	measure 'Faixa Inferior' = AVERAGE(previsao_futura[faixa_inferior])
+		formatString: 0.00
+		lineageTag: 5025aff5-6513-5533-8f7b-4e9a8f7cc9ec
+
+	measure 'Faixa Superior' = AVERAGE(previsao_futura[faixa_superior])
+		formatString: 0.00
+		lineageTag: 3e232a01-7655-5b5d-8956-7a968759f2ba
+
+	measure 'Faixa Provavel' = FORMAT([Faixa Inferior], "0.00") & " a " & FORMAT([Faixa Superior], "0.00")
+		lineageTag: 42090ace-3c94-5535-a923-7dabe7604963
+
+	measure 'Variacao Prevista' = DIVIDE(AVERAGE(previsao_futura[variacao_prevista_pct]), 100)
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: d63e7b9d-5c32-558a-ac53-c2c51fcb8c7b
+
+	measure 'Variacao Prevista Mediana' = DIVIDE(MEDIAN(previsao_futura[variacao_prevista_pct]), 100)
+		formatString: +0.0%;-0.0%;0.0%
+		lineageTag: 7b82c206-e017-5ded-9960-8a88b6902375
+
+	measure 'WAPE Teste' = DIVIDE(SUM(previsoes_teste[erro_abs]), SUM(previsoes_teste[preco_real]))
+		formatString: 0.00%
+		lineageTag: 22ad83e0-a828-50fd-9b06-d9a47f79136e
+
+	measure 'WAPE Modelo Final' = CALCULATE([WAPE Teste], previsoes_teste[modelo] = "combinado")
+		formatString: 0.00%
+		lineageTag: 9a401e8d-596b-567c-a9c7-f31287a8c7f7
+
+	measure 'WAPE Ingenuo' = CALCULATE([WAPE Teste], previsoes_teste[modelo] = "ingenuo")
+		formatString: 0.00%
+		lineageTag: d1b701ce-1ffc-5010-be42-eb83808f4591
+
+	measure 'Ganho sobre Ingenuo' = 1 - DIVIDE([WAPE Modelo Final], [WAPE Ingenuo])
+		formatString: 0.0%
+		lineageTag: dd71703d-ed12-5887-aa9b-b46d0f4f3856
+
+	measure 'Produtos em que Ganha' = ```
+			DIVIDE(
+			    CALCULATE(
+			        MAX(metricas_modelos[series_melhor_que_ingenuo_pct]),
+			        metricas_modelos[modelo] = "combinado",
+			        metricas_modelos[corte] = DATE(2024, 12, 1)
+			    ),
+			    100
+			)
+			```
+		formatString: 0%
+		lineageTag: a7947e6b-8722-5623-a429-f60b98762658
+
+	measure 'WAPE Backtest' = ```
+			VAR m = SELECTEDVALUE(metricas_modelos[modelo])
+			RETURN
+			    IF(m IN {"ingenuo", "sarima", "gradient_boosting", "combinado"}, DIVIDE(AVERAGE(metricas_modelos[wape]), 100))
+			```
+		formatString: 0.00%
+		lineageTag: 07b09c78-b028-5b58-9a95-24c059de3594
+
+	measure 'WAPE Categoria' = ```
+			VAR m = SELECTEDVALUE(metricas_por_categoria[modelo])
+			RETURN
+			    IF(m IN {"ingenuo", "combinado"}, DIVIDE(AVERAGE(metricas_por_categoria[wape]), 100))
+			```
+		formatString: 0.00%
+		lineageTag: 272120d4-e2c0-5d91-a967-47fe620e125c
+
+	measure 'Preco Real Teste' = CALCULATE(AVERAGE(previsoes_teste[preco_real]), previsoes_teste[modelo] = "combinado")
+		formatString: 0.00
+		lineageTag: f9ee110d-9645-5453-b444-2a0873e25a5a
+
+	measure 'Preco Previsto Teste' = CALCULATE(AVERAGE(previsoes_teste[preco_previsto]), previsoes_teste[modelo] = "combinado")
+		formatString: 0.00
+		lineageTag: 8cb590e0-051e-5eb8-b12c-0aec9d64ff21
+
+	measure 'Preco Repetido Teste' = CALCULATE(AVERAGE(previsoes_teste[preco_previsto]), previsoes_teste[modelo] = "ingenuo")
+		formatString: 0.00
+		lineageTag: 302ad97a-7dab-558f-9113-0d5e570d7597
+
+	column Coluna
+		dataType: string
+		isHidden
+		isDataTypeInferred
+		lineageTag: d6bd8c03-738d-522c-a73d-6d28b0d6b7af
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Coluna]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = calculated
+		mode: import
+		source = ROW("Coluna", "")

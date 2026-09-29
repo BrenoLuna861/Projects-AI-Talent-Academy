@@ -17,6 +17,7 @@ from src.config import (
     POWERBI_DIR,
     garantir_pastas,
 )
+from src.etl.nomes_itens import NOMES_PT
 from src.features.analise_series import forcas
 from src.features.build_features import linhas_para_previsao, linhas_utilizaveis
 from src.models import series_temporais
@@ -73,6 +74,7 @@ def faixas_de_erro(prev_teste: pd.DataFrame, modelo: str) -> pd.DataFrame:
 
 def exportar_dimensoes() -> None:
     itens = pd.read_parquet(ARQUIVO_ITENS)
+    itens.insert(2, "item_pt", itens["serie_id"].map(NOMES_PT).fillna(itens["item"]))
     precos = pd.read_parquet(ARQUIVO_PRECOS).sort_values(["serie_id", "data"])
 
     lp = np.log(precos["preco"])
@@ -118,6 +120,7 @@ def main() -> None:
     saida = futuro[["serie_id", "item", "categoria", "data_base", "data_alvo", "preco"]].rename(
         columns={"preco": "preco_base"}
     )
+    saida.insert(2, "item_pt", saida["serie_id"].map(NOMES_PT).fillna(saida["item"]))
     saida["modelo"] = nome
     saida["horizonte_meses"] = HORIZONTE
     saida["preco_previsto"] = (saida["preco_base"] * np.exp(ret)).round(3)

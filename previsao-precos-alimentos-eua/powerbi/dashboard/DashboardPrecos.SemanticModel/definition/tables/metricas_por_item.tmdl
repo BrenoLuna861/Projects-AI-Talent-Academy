@@ -1,0 +1,56 @@
+table metricas_por_item
+	lineageTag: f057ffbe-b60c-50d3-9180-fa6fe37b84ba
+
+	column serie_id
+		dataType: string
+		isHidden
+		lineageTag: 8a482ba4-7091-5bb7-8fb0-8c965107affd
+		summarizeBy: none
+		sourceColumn: serie_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column modelo
+		dataType: string
+		lineageTag: a937eb3b-5e41-5c6d-afa8-066d714257b6
+		summarizeBy: none
+		sourceColumn: modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column mape
+		dataType: double
+		lineageTag: c6b1d29e-6612-5433-8d6e-802407968e0f
+		summarizeBy: none
+		sourceColumn: mape
+
+		annotation SummarizationSetBy = Automatic
+
+	column wape
+		dataType: double
+		lineageTag: efeff44c-03e9-5c18-bd52-8d6f6e43754e
+		summarizeBy: none
+		sourceColumn: wape
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		formatString: 0
+		lineageTag: 84c48081-c0d9-59f6-9453-26de0231b3a4
+		summarizeBy: none
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	partition metricas_por_item = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "metricas_por_item.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"serie_id", type text}, {"modelo", type text}, {"mape", type number}, {"wape", type number}, {"n", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "DashboardPrecos"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f7e18c92-ea7f-4731-a0e9-fba4dac56fb0"
+  }
+}

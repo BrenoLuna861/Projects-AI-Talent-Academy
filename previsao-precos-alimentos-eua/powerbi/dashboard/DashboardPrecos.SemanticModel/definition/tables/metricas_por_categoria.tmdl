@@ -1,0 +1,62 @@
+table metricas_por_categoria
+	lineageTag: db21968d-4783-5437-9650-4759297fe1ea
+
+	column categoria
+		dataType: string
+		lineageTag: 5f03dfea-8f83-52fa-a669-08ef83bb4e56
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column modelo
+		dataType: string
+		lineageTag: 20e99cfc-debe-522e-ad70-a2031d52760b
+		summarizeBy: none
+		sourceColumn: modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column mape
+		dataType: double
+		lineageTag: bfe1feaf-931b-5e1f-aed7-b649ad306da3
+		summarizeBy: none
+		sourceColumn: mape
+
+		annotation SummarizationSetBy = Automatic
+
+	column wape
+		dataType: double
+		lineageTag: d33198fe-4021-51e3-819d-d2987a280f09
+		summarizeBy: none
+		sourceColumn: wape
+
+		annotation SummarizationSetBy = Automatic
+
+	column n
+		dataType: int64
+		formatString: 0
+		lineageTag: f2885890-4a61-5adc-a03d-178dbcd12731
+		summarizeBy: none
+		sourceColumn: n
+
+		annotation SummarizationSetBy = Automatic
+
+	column modelo_nome = SWITCH([modelo], "combinado", "GB + SARIMA", "gradient_boosting", "Gradient boosting", "random_forest", "Random forest", "ridge", "Ridge", "sarima", "SARIMA", "ets", "Holt-Winters", "ingenuo", "Repetir preço atual", "sazonal_ingenuo", "Repetir ano anterior", [modelo])
+		dataType: string
+		lineageTag: 1972899c-9529-5cc3-824c-af12417a5a96
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition metricas_por_categoria = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "metricas_por_categoria.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"categoria", type text}, {"modelo", type text}, {"mape", type number}, {"wape", type number}, {"n", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

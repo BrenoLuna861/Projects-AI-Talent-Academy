@@ -1,0 +1,96 @@
+table metricas_modelos
+	lineageTag: 4489df43-f330-5343-b282-f313262cef8c
+
+	column corte
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 35c760f2-42ba-5314-86f8-6babffa3234b
+		summarizeBy: none
+		sourceColumn: corte
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column modelo
+		dataType: string
+		lineageTag: 25e5fa8d-c0ad-5384-90d3-df99290f1ae6
+		summarizeBy: none
+		sourceColumn: modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column mae_usd
+		dataType: double
+		lineageTag: dbf42643-0d97-5f0f-8fb3-995ff236030d
+		summarizeBy: none
+		sourceColumn: mae_usd
+
+		annotation SummarizationSetBy = Automatic
+
+	column mape
+		dataType: double
+		lineageTag: a72bcd96-fd3d-53e4-9c13-7de3b203e411
+		summarizeBy: none
+		sourceColumn: mape
+
+		annotation SummarizationSetBy = Automatic
+
+	column wape
+		dataType: double
+		lineageTag: 3a38a4a7-5717-5783-85c1-1fa7898eb4c8
+		summarizeBy: none
+		sourceColumn: wape
+
+		annotation SummarizationSetBy = Automatic
+
+	column vies_pct
+		dataType: double
+		lineageTag: e224d413-882b-53f5-838f-99d96584b3ef
+		summarizeBy: none
+		sourceColumn: vies_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column ganho_vs_ingenuo_pct
+		dataType: double
+		lineageTag: 2ac87455-d102-5c83-87c8-88b6f2824710
+		summarizeBy: none
+		sourceColumn: ganho_vs_ingenuo_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column series_melhor_que_ingenuo_pct
+		dataType: double
+		lineageTag: 38a578a7-a50e-5ff5-a6e5-ad06a5be52e2
+		summarizeBy: none
+		sourceColumn: series_melhor_que_ingenuo_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column data_execucao
+		dataType: string
+		lineageTag: 96450611-631f-5e9d-96e1-cb07f6746112
+		summarizeBy: none
+		sourceColumn: data_execucao
+
+		annotation SummarizationSetBy = Automatic
+
+	column modelo_nome = SWITCH([modelo], "combinado", "GB + SARIMA", "gradient_boosting", "Gradient boosting", "random_forest", "Random forest", "ridge", "Ridge", "sarima", "SARIMA", "ets", "Holt-Winters", "ingenuo", "Repetir preço atual", "sazonal_ingenuo", "Repetir ano anterior", [modelo])
+		dataType: string
+		lineageTag: 016e5302-315b-52b4-84e9-f8cb54b2b3b9
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition metricas_modelos = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "metricas_modelos.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"corte", type date}, {"modelo", type text}, {"mae_usd", type number}, {"mape", type number}, {"wape", type number}, {"vies_pct", type number}, {"ganho_vs_ingenuo_pct", type number}, {"series_melhor_que_ingenuo_pct", type number}, {"data_execucao", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

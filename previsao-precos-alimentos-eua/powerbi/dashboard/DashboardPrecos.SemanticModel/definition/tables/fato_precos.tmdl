@@ -1,0 +1,50 @@
+table fato_precos
+	lineageTag: f0aecdde-3555-5733-81cf-222bfe28d51c
+
+	column serie_id
+		dataType: string
+		isHidden
+		lineageTag: 23ac66b2-2514-5fff-836e-71cfe8f0a280
+		summarizeBy: none
+		sourceColumn: serie_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column data
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: e244828b-3c00-5578-9861-d4e1848d32ba
+		summarizeBy: none
+		sourceColumn: data
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column preco
+		dataType: double
+		lineageTag: d1c0eaed-f55f-5d60-b4cd-0e901e4a10cc
+		summarizeBy: none
+		sourceColumn: preco
+
+		annotation SummarizationSetBy = Automatic
+
+	column imputado
+		dataType: boolean
+		lineageTag: 2b7af689-9920-5ae7-8c31-5116d2bf0ed4
+		summarizeBy: none
+		sourceColumn: imputado
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fato_precos = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "fato_precos.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"serie_id", type text}, {"data", type date}, {"preco", type number}, {"imputado", type logical}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

@@ -1,0 +1,183 @@
+table dim_item
+	lineageTag: ca1b5106-51dd-5627-9c0c-37a397662a3c
+
+	column serie_id
+		dataType: string
+		lineageTag: 85dc63f9-fc65-5c0a-984a-c45c01ca9096
+		summarizeBy: none
+		sourceColumn: serie_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column item
+		dataType: string
+		lineageTag: fb94ba83-00f2-55ca-9557-2309c05cbf91
+		summarizeBy: none
+		sourceColumn: item
+
+		annotation SummarizationSetBy = Automatic
+
+	column item_pt
+		dataType: string
+		lineageTag: 728a5b71-3649-506d-85de-a61458b926a1
+		summarizeBy: none
+		sourceColumn: item_pt
+
+		annotation SummarizationSetBy = Automatic
+
+	column unidade
+		dataType: string
+		lineageTag: 6bc838e5-b208-5ebc-8b15-d20258665c8e
+		summarizeBy: none
+		sourceColumn: unidade
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria
+		dataType: string
+		lineageTag: ae8d37bf-d0c2-592a-8958-64cfd7586de0
+		summarizeBy: none
+		sourceColumn: categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column categoria_original
+		dataType: string
+		lineageTag: 10628b83-ea72-5763-a5e9-54810561f21a
+		summarizeBy: none
+		sourceColumn: categoria_original
+
+		annotation SummarizationSetBy = Automatic
+
+	column inicio
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 47158ed4-7ae8-56ee-98b2-35f7f0f287e3
+		summarizeBy: none
+		sourceColumn: inicio
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fim
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 38c46d55-e6cf-5e3b-9bb7-c9ddacda1322
+		summarizeBy: none
+		sourceColumn: fim
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column meses_publicados
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b1694e4-c72d-5882-bee6-a59dd089ea28
+		summarizeBy: none
+		sourceColumn: meses_publicados
+
+		annotation SummarizationSetBy = Automatic
+
+	column meses_na_grade
+		dataType: int64
+		formatString: 0
+		lineageTag: 7bbef2b3-cd9d-56f9-b55a-8224151ade73
+		summarizeBy: none
+		sourceColumn: meses_na_grade
+
+		annotation SummarizationSetBy = Automatic
+
+	column meses_faltando
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c9d2069-b160-5fa5-ad49-3a8ff0c9ee76
+		summarizeBy: none
+		sourceColumn: meses_faltando
+
+		annotation SummarizationSetBy = Automatic
+
+	column ativa
+		dataType: boolean
+		lineageTag: 4c5ad279-f451-5d49-bbc9-c0a1790da173
+		summarizeBy: none
+		sourceColumn: ativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column serie_agregada
+		dataType: boolean
+		lineageTag: 93416805-8a66-58bb-a44a-3738edea1c0f
+		summarizeBy: none
+		sourceColumn: serie_agregada
+
+		annotation SummarizationSetBy = Automatic
+
+	column media_12_inicio
+		dataType: double
+		lineageTag: 84d297d4-4a8a-52e0-9fb5-14daed17cc01
+		summarizeBy: none
+		sourceColumn: media_12_inicio
+
+		annotation SummarizationSetBy = Automatic
+
+	column media_12_fim
+		dataType: double
+		lineageTag: 2b8b7c12-4d1f-5ee0-8ebb-d17cfef3de7a
+		summarizeBy: none
+		sourceColumn: media_12_fim
+
+		annotation SummarizationSetBy = Automatic
+
+	column variacao_12m_pct
+		dataType: double
+		lineageTag: 410752d8-d0ff-5afc-82c2-080fb255937f
+		summarizeBy: none
+		sourceColumn: variacao_12m_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column motivo_exclusao
+		dataType: string
+		lineageTag: dfdd7798-ac66-5766-b656-404bfaf3345b
+		summarizeBy: none
+		sourceColumn: motivo_exclusao
+
+		annotation SummarizationSetBy = Automatic
+
+	column vol_mensal_pct
+		dataType: double
+		lineageTag: cee74db8-f8d6-5be3-a007-65db7783b615
+		summarizeBy: none
+		sourceColumn: vol_mensal_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	column forca_tendencia
+		dataType: double
+		lineageTag: 6c5b721a-7d1f-51f7-bbe5-b6292f0d626f
+		summarizeBy: none
+		sourceColumn: forca_tendencia
+
+		annotation SummarizationSetBy = Automatic
+
+	column forca_sazonalidade
+		dataType: double
+		lineageTag: fa04ee51-59fb-5fa5-849f-46789deab205
+		summarizeBy: none
+		sourceColumn: forca_sazonalidade
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dim_item = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "dim_item.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"serie_id", type text}, {"item", type text}, {"item_pt", type text}, {"unidade", type text}, {"categoria", type text}, {"categoria_original", type text}, {"inicio", type date}, {"fim", type date}, {"meses_publicados", Int64.Type}, {"meses_na_grade", Int64.Type}, {"meses_faltando", Int64.Type}, {"ativa", type logical}, {"serie_agregada", type logical}, {"media_12_inicio", type number}, {"media_12_fim", type number}, {"variacao_12m_pct", type number}, {"motivo_exclusao", type text}, {"vol_mensal_pct", type number}, {"forca_tendencia", type number}, {"forca_sazonalidade", type number}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

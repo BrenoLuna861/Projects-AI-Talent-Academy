@@ -1,0 +1,40 @@
+table sazonalidade
+	lineageTag: bb313b89-5741-546c-abed-df9b364ff169
+
+	column serie_id
+		dataType: string
+		isHidden
+		lineageTag: f54728ce-2e83-5d98-bc24-3292b7d4553a
+		summarizeBy: none
+		sourceColumn: serie_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: 31a0bc9e-f750-5bc6-b5c0-e82e38ce3980
+		summarizeBy: none
+		sourceColumn: mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column desvio_sazonal_pct
+		dataType: double
+		lineageTag: c85af7a0-5437-55f2-9544-5b453b48adc2
+		summarizeBy: none
+		sourceColumn: desvio_sazonal_pct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition sazonalidade = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents(PastaDados & "sazonalidade.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Cabecalhos = Table.PromoteHeaders(Fonte, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Cabecalhos, {{"serie_id", type text}, {"mes", Int64.Type}, {"desvio_sazonal_pct", type number}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table

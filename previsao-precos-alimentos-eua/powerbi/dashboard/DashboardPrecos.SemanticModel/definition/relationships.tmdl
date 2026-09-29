@@ -1,0 +1,27 @@
+relationship 8e04f9a4-d284-501e-970f-85020c2eb74b
+	fromColumn: fato_precos.serie_id
+	toColumn: dim_item.serie_id
+
+relationship cba4ed30-2ccf-5dbb-b239-80a082b91d38
+	fromColumn: previsao_futura.serie_id
+	toColumn: dim_item.serie_id
+
+relationship 9e609aac-94a7-552a-9ce6-fb248d19e64e
+	fromColumn: previsoes_teste.serie_id
+	toColumn: dim_item.serie_id
+
+relationship afd43456-aac9-5dc8-b20a-089cdbc104cd
+	fromColumn: metricas_por_item.serie_id
+	toColumn: dim_item.serie_id
+
+relationship e086ee05-eb26-5f20-b0ba-a7f87a5d6cec
+	fromColumn: sazonalidade.serie_id
+	toColumn: dim_item.serie_id
+
+relationship db10d557-bc24-55b4-8a0e-cd42cc15fc2c
+	fromColumn: fato_precos.data
+	toColumn: dCalendario.data
+
+relationship f347e661-e625-5851-be16-f510ee2cabf2
+	fromColumn: previsoes_teste.data_alvo
+	toColumn: dCalendario.data
