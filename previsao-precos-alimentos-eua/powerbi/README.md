@@ -1,7 +1,11 @@
 # Dashboard Power BI
 
-O `.pbix` é montado pela Paula a partir dos CSVs de `data/processed/powerbi/`.
-Antes de abrir, rodar o pipeline completo (ver README principal).
+O dashboard pronto está em [`dashboard/`](dashboard/) (formato PBIP). Para abrir, ver o
+[`LEIA-ME`](dashboard/LEIA-ME.md). Ele lê os CSVs de `data/processed/powerbi/`, que já estão no
+repositório; se o modelo mudar, rodar o pipeline de novo e clicar em Atualizar no Power BI.
+
+O resto deste arquivo documenta como o modelo de dados foi montado (útil para refazer do zero ou
+conferir o que está no projeto).
 
 ## Importação
 

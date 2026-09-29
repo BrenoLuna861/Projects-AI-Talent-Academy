@@ -3,7 +3,7 @@
   "name": "45c873a3a5e6ed62abf7",
   "position": {
     "x": 196,
-    "y": 200,
+    "y": 204,
     "z": 20000,
     "width": 420,
     "height": 440,
@@ -162,6 +162,19 @@
                       "Value": "'#14284B'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

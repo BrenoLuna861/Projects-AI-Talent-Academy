@@ -59,6 +59,17 @@ O notebook 05 olha os dados como série temporal:
 - **Granularidade de produto:** séries agregadas ("All uncooked ground beef") são menos
   voláteis e mais previsíveis que os itens específicos que resumem.
 
+## Dashboard
+
+O dashboard está pronto em [`powerbi/dashboard/`](powerbi/dashboard/), no formato PBIP (arquivos de
+texto que o git versiona). Tem 4 páginas: Panorama, Série temporal, Previsão e Confiabilidade,
+com filtros de categoria e produto e menu lateral de navegação. Ele lê os CSVs de
+`data/processed/powerbi/`, que também estão no repositório.
+
+Para abrir: `powerbi/dashboard/DashboardPrecos.pbip` no Power BI Desktop, ajustar o parâmetro
+`PastaDados` para a pasta dos CSVs e clicar em Atualizar (detalhes no
+[`LEIA-ME`](powerbi/dashboard/LEIA-ME.md)).
+
 ## Pipeline
 
 ```
@@ -107,11 +118,11 @@ No total leva uns 5 minutos num notebook comum.
 ├── data/
 │   ├── raw/          CSVs do Kaggle (não versionados)
 │   ├── interim/      grade mensal e tabela de itens
-│   └── processed/    base de modelagem e powerbi/
+│   └── processed/    base de modelagem e powerbi/ (CSVs do dashboard, versionados)
 ├── docs/             escopo, dicionário de dados, indicadores, plano de atividades
 ├── notebooks/        01 EDA, 02 preparação, 03 modelagem, 04 avaliação/exportação,
 │                     05 série temporal e granularidade
-├── powerbi/          medidas DAX e orientação do dashboard
+├── powerbi/          dashboard/ (projeto do Power BI), medidas DAX e roteiro das páginas
 ├── reports/          figuras e acompanhamentos do grupo
 ├── src/              código do pipeline
 └── tests/

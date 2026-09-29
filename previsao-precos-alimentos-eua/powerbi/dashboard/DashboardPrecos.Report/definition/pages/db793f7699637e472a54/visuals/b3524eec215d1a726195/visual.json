@@ -3,7 +3,7 @@
   "name": "b3524eec215d1a726195",
   "position": {
     "x": 628,
-    "y": 200,
+    "y": 204,
     "z": 21000,
     "width": 636,
     "height": 440,
@@ -143,6 +143,19 @@
       }
     },
     "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
       "columnHeaders": [
         {
           "properties": {

@@ -21,6 +21,14 @@ Analisar o preço médio de cada item como série temporal (o valor que ele teve
 pode vir a ter), prever esse preço com 3 meses de antecedência e mostrar, no dashboard, a
 evolução histórica, a previsão e o quanto dá para confiar nela.
 
+## Para quem é
+
+Analista de compras e custos de uma rede de supermercados ou restaurantes nos EUA. Precisa saber se
+o preço dos itens que compra vai subir ou cair nos próximos meses para negociar com fornecedores,
+antecipar compras ou ajustar preços de venda. No dashboard, usa a previsão por produto, a faixa
+provável (risco), a sazonalidade (melhor época de comprar) e a página de confiabilidade (em quais
+produtos dá para confiar na previsão).
+
 ## Objetivos específicos
 
 1. Entender a base: cobertura das séries, buracos, erros de categoria, sazonalidade e volatilidade.

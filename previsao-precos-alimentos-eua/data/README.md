@@ -1,6 +1,6 @@
 # Dados
 
-Nada desta pasta é versionado (ver `.gitignore`), só a estrutura.
+Só a estrutura das pastas e os CSVs do dashboard (`processed/powerbi/`) são versionados (ver `.gitignore`). O resto é gerado pelo pipeline.
 
 ## Como obter a base
 

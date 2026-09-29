@@ -25,6 +25,8 @@ O caminho que vem configurado é o da pasta `data\processed\powerbi\` do reposit
 
 Filtros de **Categoria** e **Produto** no topo de cada página.
 
+Para trocar de página, use o menu lateral. No modo de edição do Power BI Desktop é preciso segurar **Ctrl** ao clicar no botão; na leitura ou depois de publicado, basta clicar.
+
 ## Para conferir se carregou certo
 
 - Panorama: 63 produtos acompanhados, alta mediana de 40,9%.

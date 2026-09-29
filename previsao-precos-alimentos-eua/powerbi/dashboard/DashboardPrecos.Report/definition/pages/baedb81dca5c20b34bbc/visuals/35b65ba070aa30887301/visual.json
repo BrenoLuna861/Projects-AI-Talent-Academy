@@ -3,10 +3,10 @@
   "name": "35b65ba070aa30887301",
   "position": {
     "x": 848,
-    "y": 200,
+    "y": 204,
     "z": 21000,
     "width": 416,
-    "height": 262,
+    "height": 258,
     "tabOrder": 21000
   },
   "visual": {
@@ -150,6 +150,19 @@
                       "Value": "'#14284B'"
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
