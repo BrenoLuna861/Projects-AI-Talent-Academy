@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "3c880a77180b55554cd7",
   "position": {
     "x": 466,
     "y": 86,
     "z": 11000,
-    "width": 258,
     "height": 110,
+    "width": 258,
     "tabOrder": 11000
   },
   "visual": {
@@ -151,6 +151,19 @@
           },
           "selector": {
             "id": "default"
+          }
+        }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "calloutSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
           }
         }
       ]

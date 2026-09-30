@@ -48,3 +48,4 @@ table fato_precos
 				    Tipos
 
 	annotation PBI_ResultType = Table
+

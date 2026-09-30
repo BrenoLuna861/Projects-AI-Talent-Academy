@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "5e3cc140b8db16b39ea3",
   "position": {
     "x": 196,
     "y": 400,
     "z": 22000,
-    "width": 520,
     "height": 312,
+    "width": 520,
     "tabOrder": 22000
   },
   "visual": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_item.item_pt",
               "nativeQueryRef": "item_pt",
+              "active": true,
               "displayName": "Produto"
             }
           ]

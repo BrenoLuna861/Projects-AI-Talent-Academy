@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "9b745f81690d537fc897",
   "position": {
     "x": 728,
     "y": 400,
     "z": 23000,
-    "width": 536,
     "height": 312,
+    "width": 536,
     "tabOrder": 23000
   },
   "visual": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_item.item_pt",
               "nativeQueryRef": "item_pt",
+              "active": true,
               "displayName": "Produto"
             }
           ]
@@ -66,6 +67,7 @@
               },
               "queryRef": "_Medidas.Forca Tendencia",
               "nativeQueryRef": "Forca Tendencia",
+              "active": true,
               "displayName": "Força da tendência"
             }
           ]

@@ -10,6 +10,8 @@ annotation PBI_QueryOrder = ["PastaDados", "dim_item", "fato_precos", "previsao_
 
 annotation __PBI_TimeIntelligenceEnabled = 0
 
+annotation PBI_ProTooling = ["DevMode"]
+
 ref table dim_item
 ref table fato_precos
 ref table previsao_futura
@@ -20,3 +22,6 @@ ref table metricas_por_item
 ref table sazonalidade
 ref table dCalendario
 ref table _Medidas
+
+ref cultureInfo pt-BR
+

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "5b6032e4d4f32642d15d",
   "position": {
     "x": 196,
     "y": 204,
     "z": 20000,
-    "width": 640,
     "height": 258,
+    "width": 640,
     "tabOrder": 20000
   },
   "visual": {
@@ -28,26 +28,8 @@
               },
               "queryRef": "dCalendario.data",
               "nativeQueryRef": "data",
+              "active": true,
               "displayName": "Mês"
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
-            {
-              "field": {
-                "Measure": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas"
-                    }
-                  },
-                  "Property": "Indice 2019 Mediana Categoria"
-                }
-              },
-              "queryRef": "_Medidas.Indice 2019 Mediana Categoria",
-              "nativeQueryRef": "Indice 2019 Mediana Categoria",
-              "displayName": "Índice (2019 = 100)"
             }
           ]
         },
@@ -67,6 +49,25 @@
               "queryRef": "dim_item.categoria",
               "nativeQueryRef": "categoria",
               "displayName": "Categoria"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Indice 2019 Mediana Categoria"
+                }
+              },
+              "queryRef": "_Medidas.Indice 2019 Mediana Categoria",
+              "nativeQueryRef": "Indice 2019 Mediana Categoria",
+              "displayName": "Índice (2019 = 100)"
             }
           ]
         }
@@ -465,6 +466,34 @@
             }
           ]
         }
+      },
+      {
+        "name": "6e9ebabccc467e579b02",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "4f85a592ad4072576c3b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Indice 2019 Mediana Categoria"
+          }
+        },
+        "type": "Advanced"
       }
     ]
   }

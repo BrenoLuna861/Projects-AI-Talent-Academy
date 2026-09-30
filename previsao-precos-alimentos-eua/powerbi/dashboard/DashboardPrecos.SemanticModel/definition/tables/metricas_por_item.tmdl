@@ -54,3 +54,4 @@ table metricas_por_item
 				    Tipos
 
 	annotation PBI_ResultType = Table
+

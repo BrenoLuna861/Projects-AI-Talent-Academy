@@ -17,14 +17,6 @@ table dim_item
 
 		annotation SummarizationSetBy = Automatic
 
-	column item_pt
-		dataType: string
-		lineageTag: 728a5b71-3649-506d-85de-a61458b926a1
-		summarizeBy: none
-		sourceColumn: item_pt
-
-		annotation SummarizationSetBy = Automatic
-
 	column unidade
 		dataType: string
 		lineageTag: 6bc838e5-b208-5ebc-8b15-d20258665c8e
@@ -170,6 +162,14 @@ table dim_item
 
 		annotation SummarizationSetBy = Automatic
 
+	column item_pt
+		dataType: string
+		lineageTag: 728a5b71-3649-506d-85de-a61458b926a1
+		summarizeBy: none
+		sourceColumn: item_pt
+
+		annotation SummarizationSetBy = Automatic
+
 	partition dim_item = m
 		mode: import
 		source =
@@ -181,3 +181,4 @@ table dim_item
 				    Tipos
 
 	annotation PBI_ResultType = Table
+

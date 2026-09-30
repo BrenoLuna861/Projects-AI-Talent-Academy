@@ -60,3 +60,4 @@ table metricas_por_categoria
 				    Tipos
 
 	annotation PBI_ResultType = Table
+

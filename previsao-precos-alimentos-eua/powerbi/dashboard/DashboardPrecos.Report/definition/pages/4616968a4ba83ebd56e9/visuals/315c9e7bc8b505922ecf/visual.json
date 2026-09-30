@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "315c9e7bc8b505922ecf",
   "position": {
-    "x": 12,
-    "y": 22,
+    "x": 11.428571428571429,
+    "y": 21.428571428571431,
     "z": 91000,
-    "width": 156,
-    "height": 40,
+    "height": 61.428571428571431,
+    "width": 157.14285714285714,
     "tabOrder": 91000
   },
   "visual": {
@@ -31,19 +31,19 @@
                     }
                   }
                 },
-                "scaling": {
-                  "expr": {
-                    "Literal": {
-                      "Value": "'Fit'"
-                    }
-                  }
-                },
                 "url": {
                   "expr": {
                     "ResourcePackageItem": {
                       "PackageName": "RegisteredResources",
                       "PackageType": 1,
                       "ItemName": "LogoWhiteCube.png"
+                    }
+                  }
+                },
+                "scaling": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'Fit'"
                     }
                   }
                 }

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "2cb9a63cc93dddd6526f",
   "position": {
     "x": 196,
     "y": 86,
     "z": 10000,
-    "width": 258,
     "height": 110,
+    "width": 258,
     "tabOrder": 10000
   },
   "visual": {
@@ -153,6 +153,19 @@
             "id": "default"
           }
         }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "calloutSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -212,5 +225,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "36d1e179c5506c505457",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "WAPE Modelo Final"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

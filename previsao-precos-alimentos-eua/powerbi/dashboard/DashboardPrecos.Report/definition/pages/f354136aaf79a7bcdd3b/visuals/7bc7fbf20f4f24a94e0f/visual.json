@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "7bc7fbf20f4f24a94e0f",
   "position": {
     "x": 736,
     "y": 86,
     "z": 12000,
-    "width": 258,
     "height": 110,
+    "width": 258,
     "tabOrder": 12000
   },
   "visual": {
@@ -153,6 +153,19 @@
             "id": "default"
           }
         }
+      ],
+      "layout": [
+        {
+          "properties": {
+            "calloutSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "50D"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -212,5 +225,23 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "d276602721c95bb3865a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Ganho sobre Ingenuo"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

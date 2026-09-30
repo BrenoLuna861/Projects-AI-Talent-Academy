@@ -1,10 +1,8 @@
 table dCalendario
-	dataCategory: Time
 	lineageTag: f02d086a-a9ba-55e2-9487-cfd1b224b150
+	dataCategory: Time
 
 	column data
-		dataType: dateTime
-		isDataTypeInferred
 		isKey
 		formatString: dd/mm/yyyy
 		lineageTag: 1c4a0d24-3a1a-5fa4-99f9-aa9d3a3e2d2b
@@ -15,8 +13,6 @@ table dCalendario
 		annotation SummarizationSetBy = Automatic
 
 	column ano
-		dataType: int64
-		isDataTypeInferred
 		formatString: 0
 		lineageTag: 49571fec-7098-5c33-b86e-f6ae59b27611
 		summarizeBy: none
@@ -26,8 +22,6 @@ table dCalendario
 		annotation SummarizationSetBy = Automatic
 
 	column mes
-		dataType: int64
-		isDataTypeInferred
 		formatString: 0
 		lineageTag: 21d1c9f6-63dc-5f40-9ccd-d48fad8fcb35
 		summarizeBy: none
@@ -39,3 +33,4 @@ table dCalendario
 	partition dCalendario = calculated
 		mode: import
 		source = SELECTCOLUMNS(FILTER(CALENDAR(DATE(2015, 1, 1), DATE(2026, 12, 1)), DAY([Date]) = 1), "data", [Date], "ano", YEAR([Date]), "mes", MONTH([Date]))
+

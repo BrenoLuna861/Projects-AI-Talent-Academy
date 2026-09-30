@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "95e37ddc2be57b85de82",
   "position": {
     "x": 728,
     "y": 204,
     "z": 21000,
-    "width": 536,
     "height": 258,
+    "width": 536,
     "tabOrder": 21000
   },
   "visual": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "metricas_por_categoria.categoria",
               "nativeQueryRef": "categoria",
+              "active": true,
               "displayName": "Categoria"
             }
           ]

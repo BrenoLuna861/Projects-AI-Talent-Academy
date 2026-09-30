@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "45c873a3a5e6ed62abf7",
   "position": {
     "x": 196,
     "y": 204,
     "z": 20000,
-    "width": 420,
     "height": 440,
+    "width": 420,
     "tabOrder": 20000
   },
   "visual": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "dim_item.categoria",
               "nativeQueryRef": "categoria",
+              "active": true,
               "displayName": "Categoria"
             }
           ]

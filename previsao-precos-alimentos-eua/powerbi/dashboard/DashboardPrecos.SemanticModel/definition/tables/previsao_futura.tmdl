@@ -18,14 +18,6 @@ table previsao_futura
 
 		annotation SummarizationSetBy = Automatic
 
-	column item_pt
-		dataType: string
-		lineageTag: 785d88c4-db6c-57f7-8e6f-58b4f8d893ca
-		summarizeBy: none
-		sourceColumn: item_pt
-
-		annotation SummarizationSetBy = Automatic
-
 	column categoria
 		dataType: string
 		lineageTag: 3a606eae-8a9e-5af1-a49c-873f5692e99d
@@ -113,6 +105,14 @@ table previsao_futura
 
 		annotation SummarizationSetBy = Automatic
 
+	column item_pt
+		dataType: string
+		lineageTag: 785d88c4-db6c-57f7-8e6f-58b4f8d893ca
+		summarizeBy: none
+		sourceColumn: item_pt
+
+		annotation SummarizationSetBy = Automatic
+
 	partition previsao_futura = m
 		mode: import
 		source =
@@ -124,3 +124,4 @@ table previsao_futura
 				    Tipos
 
 	annotation PBI_ResultType = Table
+

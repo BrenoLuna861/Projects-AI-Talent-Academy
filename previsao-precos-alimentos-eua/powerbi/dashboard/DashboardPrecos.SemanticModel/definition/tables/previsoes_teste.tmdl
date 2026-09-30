@@ -115,3 +115,4 @@ table previsoes_teste
 				    Tipos
 
 	annotation PBI_ResultType = Table
+

@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "40f889c60443e819ed97",
   "position": {
     "x": 12,
     "y": 208,
     "z": 95000,
-    "width": 156,
-    "height": 42,
+    "height": 50,
+    "width": 157,
     "tabOrder": 95000
   },
   "visual": {
@@ -263,6 +263,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Ir para Previsão'"
+                }
+              }
+            },
+            "showDefaultTooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }

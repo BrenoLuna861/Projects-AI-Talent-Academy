@@ -1,37 +1,18 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "5e2b7ceff7bbe31502c5",
   "position": {
     "x": 848,
     "y": 88,
     "z": 21000,
-    "width": 416,
     "height": 300,
+    "width": 416,
     "tabOrder": 21000
   },
   "visual": {
     "visualType": "pivotTable",
     "query": {
       "queryState": {
-        "Rows": {
-          "projections": [
-            {
-              "field": {
-                "Column": {
-                  "Expression": {
-                    "SourceRef": {
-                      "Entity": "dim_item"
-                    }
-                  },
-                  "Property": "categoria"
-                }
-              },
-              "queryRef": "dim_item.categoria",
-              "nativeQueryRef": "categoria",
-              "displayName": "Categoria"
-            }
-          ]
-        },
         "Columns": {
           "projections": [
             {
@@ -47,7 +28,28 @@
               },
               "queryRef": "sazonalidade.mes",
               "nativeQueryRef": "mes",
+              "active": true,
               "displayName": "Mês"
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dim_item"
+                    }
+                  },
+                  "Property": "categoria"
+                }
+              },
+              "queryRef": "dim_item.categoria",
+              "nativeQueryRef": "categoria",
+              "active": true,
+              "displayName": "Categoria"
             }
           ]
         },

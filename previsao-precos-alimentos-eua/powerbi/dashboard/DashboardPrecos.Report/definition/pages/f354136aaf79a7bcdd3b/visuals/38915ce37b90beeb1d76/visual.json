@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "38915ce37b90beeb1d76",
   "position": {
     "x": 196,
     "y": 474,
     "z": 22000,
-    "width": 1068,
     "height": 238,
+    "width": 1068,
     "tabOrder": 22000
   },
   "visual": {
@@ -28,6 +28,7 @@
               },
               "queryRef": "dCalendario.data",
               "nativeQueryRef": "data",
+              "active": true,
               "displayName": "Mês"
             }
           ]
@@ -204,5 +205,65 @@
       ]
     },
     "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9cee5f349a3a4c8d7e35",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dCalendario"
+              }
+            },
+            "Property": "data"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9f52ad0224edc304c078",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Preco Real Teste"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "b76219a1d05a02ac434c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Preco Previsto Teste"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "96deb61a01cd95e00b9e",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Medidas"
+              }
+            },
+            "Property": "Preco Repetido Teste"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
   }
 }

@@ -94,3 +94,4 @@ table metricas_modelos
 				    Tipos
 
 	annotation PBI_ResultType = Table
+

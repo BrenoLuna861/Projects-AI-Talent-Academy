@@ -1,12 +1,12 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
   "name": "ef96f4527440b5068c99",
   "position": {
     "x": 12,
     "y": 258,
     "z": 96000,
-    "width": 156,
-    "height": 42,
+    "height": 50,
+    "width": 157,
     "tabOrder": 96000
   },
   "visual": {
@@ -263,6 +263,13 @@
               "expr": {
                 "Literal": {
                   "Value": "'Ir para Confiabilidade'"
+                }
+              }
+            },
+            "showDefaultTooltip": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
                 }
               }
             }
