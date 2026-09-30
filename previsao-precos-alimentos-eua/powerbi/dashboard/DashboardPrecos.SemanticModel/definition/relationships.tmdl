@@ -1,28 +1,28 @@
-relationship 8e04f9a4-d284-501e-970f-85020c2eb74b
+relationship 905141f8-2e7b-4af9-87b3-51838893d7af
 	fromColumn: fato_precos.serie_id
 	toColumn: dim_item.serie_id
 
-relationship cba4ed30-2ccf-5dbb-b239-80a082b91d38
+relationship ad89b939-b7cc-4b42-9b9c-127c7a0fc73d
 	fromColumn: previsao_futura.serie_id
 	toColumn: dim_item.serie_id
 
-relationship 9e609aac-94a7-552a-9ce6-fb248d19e64e
+relationship aba1df9d-468a-4ae7-a070-a8ffa9447486
 	fromColumn: previsoes_teste.serie_id
 	toColumn: dim_item.serie_id
 
-relationship afd43456-aac9-5dc8-b20a-089cdbc104cd
+relationship f72c7326-8464-49a6-b77e-219402560a6a
 	fromColumn: metricas_por_item.serie_id
 	toColumn: dim_item.serie_id
 
-relationship e086ee05-eb26-5f20-b0ba-a7f87a5d6cec
+relationship 80cea3a9-3a70-4d8d-8c12-b93859960ea6
 	fromColumn: sazonalidade.serie_id
 	toColumn: dim_item.serie_id
 
-relationship db10d557-bc24-55b4-8a0e-cd42cc15fc2c
+relationship 192c4e86-f3b0-4cc4-ab57-3bf97b63fb30
 	fromColumn: fato_precos.data
 	toColumn: dCalendario.data
 
-relationship f347e661-e625-5851-be16-f510ee2cabf2
+relationship 08c94a58-db56-4275-a0ff-c22aab7b98c3
 	fromColumn: previsoes_teste.data_alvo
 	toColumn: dCalendario.data
 

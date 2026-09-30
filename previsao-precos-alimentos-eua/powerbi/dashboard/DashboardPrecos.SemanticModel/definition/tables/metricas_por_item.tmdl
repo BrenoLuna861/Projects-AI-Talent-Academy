@@ -1,10 +1,10 @@
 table metricas_por_item
-	lineageTag: f057ffbe-b60c-50d3-9180-fa6fe37b84ba
+	lineageTag: 5bef9f33-204e-48f7-8fd5-af364b5da88a
 
 	column serie_id
 		dataType: string
 		isHidden
-		lineageTag: 8a482ba4-7091-5bb7-8fb0-8c965107affd
+		lineageTag: daeff03c-9625-482f-8aaf-2083ccdf4462
 		summarizeBy: none
 		sourceColumn: serie_id
 
@@ -12,7 +12,7 @@ table metricas_por_item
 
 	column modelo
 		dataType: string
-		lineageTag: a937eb3b-5e41-5c6d-afa8-066d714257b6
+		lineageTag: f71cbad8-6c82-431e-acf5-500e568bd826
 		summarizeBy: none
 		sourceColumn: modelo
 
@@ -20,7 +20,7 @@ table metricas_por_item
 
 	column mape
 		dataType: double
-		lineageTag: c6b1d29e-6612-5433-8d6e-802407968e0f
+		lineageTag: 813f61d1-52b8-477a-811a-ea820b1fab38
 		summarizeBy: none
 		sourceColumn: mape
 
@@ -28,7 +28,7 @@ table metricas_por_item
 
 	column wape
 		dataType: double
-		lineageTag: efeff44c-03e9-5c18-bd52-8d6f6e43754e
+		lineageTag: 91b2bcb8-1785-4dbf-8668-68b83276e271
 		summarizeBy: none
 		sourceColumn: wape
 
@@ -37,7 +37,7 @@ table metricas_por_item
 	column n
 		dataType: int64
 		formatString: 0
-		lineageTag: 84c48081-c0d9-59f6-9453-26de0231b3a4
+		lineageTag: ddde73e1-0747-4398-81f7-5732cf328f12
 		summarizeBy: none
 		sourceColumn: n
 

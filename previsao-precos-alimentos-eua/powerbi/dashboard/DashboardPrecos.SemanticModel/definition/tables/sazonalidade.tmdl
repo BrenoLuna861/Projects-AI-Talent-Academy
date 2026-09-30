@@ -1,10 +1,10 @@
 table sazonalidade
-	lineageTag: bb313b89-5741-546c-abed-df9b364ff169
+	lineageTag: f84d0e5c-3aea-4aa4-8065-ac55756567ad
 
 	column serie_id
 		dataType: string
 		isHidden
-		lineageTag: f54728ce-2e83-5d98-bc24-3292b7d4553a
+		lineageTag: 6c90baa2-3e3b-4f54-ae6e-b2e6bc6b575e
 		summarizeBy: none
 		sourceColumn: serie_id
 
@@ -13,7 +13,7 @@ table sazonalidade
 	column mes
 		dataType: int64
 		formatString: 0
-		lineageTag: 31a0bc9e-f750-5bc6-b5c0-e82e38ce3980
+		lineageTag: 6ba5041f-154a-4856-be6c-73ac7b907361
 		summarizeBy: none
 		sourceColumn: mes
 
@@ -21,7 +21,7 @@ table sazonalidade
 
 	column desvio_sazonal_pct
 		dataType: double
-		lineageTag: c85af7a0-5437-55f2-9544-5b453b48adc2
+		lineageTag: 401e6e52-553f-4ea1-b73b-5dfb47e87779
 		summarizeBy: none
 		sourceColumn: desvio_sazonal_pct
 

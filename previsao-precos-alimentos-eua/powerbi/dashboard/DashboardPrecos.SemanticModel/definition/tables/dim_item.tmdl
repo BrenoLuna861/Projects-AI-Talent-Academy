@@ -1,9 +1,9 @@
 table dim_item
-	lineageTag: ca1b5106-51dd-5627-9c0c-37a397662a3c
+	lineageTag: b525b22a-ce7f-4e8d-98e1-7deb7280282b
 
 	column serie_id
 		dataType: string
-		lineageTag: 85dc63f9-fc65-5c0a-984a-c45c01ca9096
+		lineageTag: 621a4b59-b47b-46b8-834a-6224c9fc5c98
 		summarizeBy: none
 		sourceColumn: serie_id
 
@@ -11,7 +11,7 @@ table dim_item
 
 	column item
 		dataType: string
-		lineageTag: fb94ba83-00f2-55ca-9557-2309c05cbf91
+		lineageTag: 6bd5a93c-7c10-40b0-b471-d7314faecb71
 		summarizeBy: none
 		sourceColumn: item
 
@@ -19,7 +19,7 @@ table dim_item
 
 	column unidade
 		dataType: string
-		lineageTag: 6bc838e5-b208-5ebc-8b15-d20258665c8e
+		lineageTag: 919c2a7f-d215-45c4-babe-0a212876c42e
 		summarizeBy: none
 		sourceColumn: unidade
 
@@ -27,7 +27,7 @@ table dim_item
 
 	column categoria
 		dataType: string
-		lineageTag: ae8d37bf-d0c2-592a-8958-64cfd7586de0
+		lineageTag: 045eaa8c-6cb4-4421-9e96-2a3e8ea0789b
 		summarizeBy: none
 		sourceColumn: categoria
 
@@ -35,7 +35,7 @@ table dim_item
 
 	column categoria_original
 		dataType: string
-		lineageTag: 10628b83-ea72-5763-a5e9-54810561f21a
+		lineageTag: b2500226-010e-44e4-9ba6-f202057abf4e
 		summarizeBy: none
 		sourceColumn: categoria_original
 
@@ -44,7 +44,7 @@ table dim_item
 	column inicio
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: 47158ed4-7ae8-56ee-98b2-35f7f0f287e3
+		lineageTag: c98e5ae9-d37c-4395-8fca-a1b7a69ceee3
 		summarizeBy: none
 		sourceColumn: inicio
 
@@ -55,7 +55,7 @@ table dim_item
 	column fim
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: 38c46d55-e6cf-5e3b-9bb7-c9ddacda1322
+		lineageTag: 51e7bc3b-6b2e-478c-a6d2-bbd2d8befe9b
 		summarizeBy: none
 		sourceColumn: fim
 
@@ -66,7 +66,7 @@ table dim_item
 	column meses_publicados
 		dataType: int64
 		formatString: 0
-		lineageTag: 4b1694e4-c72d-5882-bee6-a59dd089ea28
+		lineageTag: 4348aebc-9311-4dca-82fc-84bb01517894
 		summarizeBy: none
 		sourceColumn: meses_publicados
 
@@ -75,7 +75,7 @@ table dim_item
 	column meses_na_grade
 		dataType: int64
 		formatString: 0
-		lineageTag: 7bbef2b3-cd9d-56f9-b55a-8224151ade73
+		lineageTag: 618b4750-27bd-477d-819a-b4873e805e52
 		summarizeBy: none
 		sourceColumn: meses_na_grade
 
@@ -84,7 +84,7 @@ table dim_item
 	column meses_faltando
 		dataType: int64
 		formatString: 0
-		lineageTag: 2c9d2069-b160-5fa5-ad49-3a8ff0c9ee76
+		lineageTag: cda31670-ed23-49d4-9fcb-0436eb467e31
 		summarizeBy: none
 		sourceColumn: meses_faltando
 
@@ -92,7 +92,7 @@ table dim_item
 
 	column ativa
 		dataType: boolean
-		lineageTag: 4c5ad279-f451-5d49-bbc9-c0a1790da173
+		lineageTag: d73ed523-50b5-45c4-a630-62140b9cdd3d
 		summarizeBy: none
 		sourceColumn: ativa
 
@@ -100,7 +100,7 @@ table dim_item
 
 	column serie_agregada
 		dataType: boolean
-		lineageTag: 93416805-8a66-58bb-a44a-3738edea1c0f
+		lineageTag: 8bb4d749-3f9c-4ebe-a8fc-3f998293b3bc
 		summarizeBy: none
 		sourceColumn: serie_agregada
 
@@ -108,7 +108,7 @@ table dim_item
 
 	column media_12_inicio
 		dataType: double
-		lineageTag: 84d297d4-4a8a-52e0-9fb5-14daed17cc01
+		lineageTag: e2ef0249-5c3c-487c-a059-38f4fb88920f
 		summarizeBy: none
 		sourceColumn: media_12_inicio
 
@@ -116,7 +116,7 @@ table dim_item
 
 	column media_12_fim
 		dataType: double
-		lineageTag: 2b8b7c12-4d1f-5ee0-8ebb-d17cfef3de7a
+		lineageTag: be6118d4-4e3f-44c3-a6bd-fedc4dbcec03
 		summarizeBy: none
 		sourceColumn: media_12_fim
 
@@ -124,7 +124,7 @@ table dim_item
 
 	column variacao_12m_pct
 		dataType: double
-		lineageTag: 410752d8-d0ff-5afc-82c2-080fb255937f
+		lineageTag: de21544f-cd9e-4956-989a-13f16a5086cc
 		summarizeBy: none
 		sourceColumn: variacao_12m_pct
 
@@ -132,7 +132,7 @@ table dim_item
 
 	column motivo_exclusao
 		dataType: string
-		lineageTag: dfdd7798-ac66-5766-b656-404bfaf3345b
+		lineageTag: 77f6fd5c-c0f0-4bfa-b2e0-29ebf864d64a
 		summarizeBy: none
 		sourceColumn: motivo_exclusao
 
@@ -140,7 +140,7 @@ table dim_item
 
 	column vol_mensal_pct
 		dataType: double
-		lineageTag: cee74db8-f8d6-5be3-a007-65db7783b615
+		lineageTag: 0826f665-9608-4b7a-b16f-fd642c1c8f9b
 		summarizeBy: none
 		sourceColumn: vol_mensal_pct
 
@@ -148,7 +148,7 @@ table dim_item
 
 	column forca_tendencia
 		dataType: double
-		lineageTag: 6c5b721a-7d1f-51f7-bbe5-b6292f0d626f
+		lineageTag: aa3de191-0829-40a5-b30e-5abae342d9da
 		summarizeBy: none
 		sourceColumn: forca_tendencia
 
@@ -156,7 +156,7 @@ table dim_item
 
 	column forca_sazonalidade
 		dataType: double
-		lineageTag: fa04ee51-59fb-5fa5-849f-46789deab205
+		lineageTag: dc654905-7ad7-440d-b4a5-6c05c526a068
 		summarizeBy: none
 		sourceColumn: forca_sazonalidade
 
@@ -164,7 +164,7 @@ table dim_item
 
 	column item_pt
 		dataType: string
-		lineageTag: 728a5b71-3649-506d-85de-a61458b926a1
+		lineageTag: 34005ccc-9f20-49d7-85a7-6aa94142b930
 		summarizeBy: none
 		sourceColumn: item_pt
 

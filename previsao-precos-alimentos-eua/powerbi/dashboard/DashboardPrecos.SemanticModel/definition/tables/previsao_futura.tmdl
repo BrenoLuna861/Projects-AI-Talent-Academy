@@ -1,10 +1,10 @@
 table previsao_futura
-	lineageTag: 78fdcc57-9a02-5c86-b147-75adbe87c30f
+	lineageTag: 39e68466-5d03-4519-9405-26dd0657c315
 
 	column serie_id
 		dataType: string
 		isHidden
-		lineageTag: 31088634-4c88-5da3-8d98-7d0a6a84a818
+		lineageTag: 72a77fdf-7b84-41e1-a019-586ef3a927f1
 		summarizeBy: none
 		sourceColumn: serie_id
 
@@ -12,7 +12,7 @@ table previsao_futura
 
 	column item
 		dataType: string
-		lineageTag: e6b757dd-9bc9-5696-bfd1-ba24e22bf747
+		lineageTag: c84fbae8-dd24-4752-8d19-2110366ea571
 		summarizeBy: none
 		sourceColumn: item
 
@@ -20,7 +20,7 @@ table previsao_futura
 
 	column categoria
 		dataType: string
-		lineageTag: 3a606eae-8a9e-5af1-a49c-873f5692e99d
+		lineageTag: adedf8cf-72ee-40ff-bf24-57976bb61aeb
 		summarizeBy: none
 		sourceColumn: categoria
 
@@ -29,7 +29,7 @@ table previsao_futura
 	column data_base
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: 52572af4-34c4-5e5b-a061-19b5e3b3abdd
+		lineageTag: 1dc62d15-e429-454c-bcd5-b29af069b97c
 		summarizeBy: none
 		sourceColumn: data_base
 
@@ -40,7 +40,7 @@ table previsao_futura
 	column data_alvo
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: eeec9236-0f7d-5cbf-9f0f-5aa66ca7cca5
+		lineageTag: ba0c2bc9-1a49-4bdc-8425-a9205fe40140
 		summarizeBy: none
 		sourceColumn: data_alvo
 
@@ -50,7 +50,7 @@ table previsao_futura
 
 	column preco_base
 		dataType: double
-		lineageTag: 31f7b53b-f8ea-50f3-9088-98b3678bb2d0
+		lineageTag: b997f7fe-9b5d-4f34-ac15-33dc1b0a71f8
 		summarizeBy: none
 		sourceColumn: preco_base
 
@@ -58,7 +58,7 @@ table previsao_futura
 
 	column modelo
 		dataType: string
-		lineageTag: 489439ae-cfd6-5be4-bd0f-c1d85726a9e6
+		lineageTag: 78d53a49-b8fa-4af7-ac24-6c99a0f47f68
 		summarizeBy: none
 		sourceColumn: modelo
 
@@ -67,7 +67,7 @@ table previsao_futura
 	column horizonte_meses
 		dataType: int64
 		formatString: 0
-		lineageTag: f42f3891-0c90-5d1c-bc74-ddaf9961ea55
+		lineageTag: 34e77a7a-add5-4bc4-a46d-989ce752de7c
 		summarizeBy: none
 		sourceColumn: horizonte_meses
 
@@ -75,7 +75,7 @@ table previsao_futura
 
 	column preco_previsto
 		dataType: double
-		lineageTag: a0c0c957-f0c2-5ff1-9a5e-ca85fb070198
+		lineageTag: faa30e88-0368-44c2-a11d-50a10a1fa670
 		summarizeBy: none
 		sourceColumn: preco_previsto
 
@@ -83,7 +83,7 @@ table previsao_futura
 
 	column faixa_inferior
 		dataType: double
-		lineageTag: eb402d51-af77-5c8a-af36-d920c8a03d0b
+		lineageTag: f1272945-867e-4824-8b4e-f91dbcee6648
 		summarizeBy: none
 		sourceColumn: faixa_inferior
 
@@ -91,7 +91,7 @@ table previsao_futura
 
 	column faixa_superior
 		dataType: double
-		lineageTag: 6e21d6d2-28f4-5197-886a-4f9ae058d80c
+		lineageTag: 05927694-5c06-4a93-8fba-38977d945c32
 		summarizeBy: none
 		sourceColumn: faixa_superior
 
@@ -99,7 +99,7 @@ table previsao_futura
 
 	column variacao_prevista_pct
 		dataType: double
-		lineageTag: bb52e476-5df2-507f-9be7-e48abc2f1753
+		lineageTag: e399bc02-3809-477a-81f2-80f0f2b69ceb
 		summarizeBy: none
 		sourceColumn: variacao_prevista_pct
 
@@ -107,7 +107,7 @@ table previsao_futura
 
 	column item_pt
 		dataType: string
-		lineageTag: 785d88c4-db6c-57f7-8e6f-58b4f8d893ca
+		lineageTag: 1acbb7fe-6c04-4c84-b29d-86b9085db624
 		summarizeBy: none
 		sourceColumn: item_pt
 

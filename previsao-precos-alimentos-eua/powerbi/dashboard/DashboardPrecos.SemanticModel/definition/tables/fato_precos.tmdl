@@ -1,10 +1,10 @@
 table fato_precos
-	lineageTag: f0aecdde-3555-5733-81cf-222bfe28d51c
+	lineageTag: a4e6f9b6-746e-44ab-b931-110310776a95
 
 	column serie_id
 		dataType: string
 		isHidden
-		lineageTag: 23ac66b2-2514-5fff-836e-71cfe8f0a280
+		lineageTag: 85816d09-549d-40b4-9b15-d687d7211953
 		summarizeBy: none
 		sourceColumn: serie_id
 
@@ -13,7 +13,7 @@ table fato_precos
 	column data
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: e244828b-3c00-5578-9861-d4e1848d32ba
+		lineageTag: b973a86a-a8f9-42c2-88ca-70807126ff90
 		summarizeBy: none
 		sourceColumn: data
 
@@ -23,7 +23,7 @@ table fato_precos
 
 	column preco
 		dataType: double
-		lineageTag: d1c0eaed-f55f-5d60-b4cd-0e901e4a10cc
+		lineageTag: 39bccc3c-79ae-4338-9121-e53da66d0e91
 		summarizeBy: none
 		sourceColumn: preco
 
@@ -31,7 +31,7 @@ table fato_precos
 
 	column imputado
 		dataType: boolean
-		lineageTag: 2b7af689-9920-5ae7-8c31-5116d2bf0ed4
+		lineageTag: 0c62026b-507c-4fb2-b955-a761491d70a1
 		summarizeBy: none
 		sourceColumn: imputado
 

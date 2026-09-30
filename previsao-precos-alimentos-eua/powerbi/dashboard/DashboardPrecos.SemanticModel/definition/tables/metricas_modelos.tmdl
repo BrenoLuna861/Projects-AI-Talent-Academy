@@ -1,10 +1,10 @@
 table metricas_modelos
-	lineageTag: 4489df43-f330-5343-b282-f313262cef8c
+	lineageTag: 17f1c487-7d70-4300-87c8-71b42489c353
 
 	column corte
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: 35c760f2-42ba-5314-86f8-6babffa3234b
+		lineageTag: d3f366e8-34f4-4934-9c5c-194f01b3eb1b
 		summarizeBy: none
 		sourceColumn: corte
 
@@ -14,7 +14,7 @@ table metricas_modelos
 
 	column modelo
 		dataType: string
-		lineageTag: 25e5fa8d-c0ad-5384-90d3-df99290f1ae6
+		lineageTag: 78cf39f9-7da6-4164-b48c-d6f75e9f7aa9
 		summarizeBy: none
 		sourceColumn: modelo
 
@@ -22,7 +22,7 @@ table metricas_modelos
 
 	column mae_usd
 		dataType: double
-		lineageTag: dbf42643-0d97-5f0f-8fb3-995ff236030d
+		lineageTag: 7ef95247-c594-4d83-9121-3140d2b324d2
 		summarizeBy: none
 		sourceColumn: mae_usd
 
@@ -30,7 +30,7 @@ table metricas_modelos
 
 	column mape
 		dataType: double
-		lineageTag: a72bcd96-fd3d-53e4-9c13-7de3b203e411
+		lineageTag: 89d833ba-8077-4c95-a7ce-36c33a7f465a
 		summarizeBy: none
 		sourceColumn: mape
 
@@ -38,7 +38,7 @@ table metricas_modelos
 
 	column wape
 		dataType: double
-		lineageTag: 3a38a4a7-5717-5783-85c1-1fa7898eb4c8
+		lineageTag: d1ac47bb-9ba2-4d3d-bd53-96cbf4540815
 		summarizeBy: none
 		sourceColumn: wape
 
@@ -46,7 +46,7 @@ table metricas_modelos
 
 	column vies_pct
 		dataType: double
-		lineageTag: e224d413-882b-53f5-838f-99d96584b3ef
+		lineageTag: 965c1756-403e-41f1-8510-a8da2fa90142
 		summarizeBy: none
 		sourceColumn: vies_pct
 
@@ -54,7 +54,7 @@ table metricas_modelos
 
 	column ganho_vs_ingenuo_pct
 		dataType: double
-		lineageTag: 2ac87455-d102-5c83-87c8-88b6f2824710
+		lineageTag: 089048fe-78a1-4e3d-8772-399b716ab4f4
 		summarizeBy: none
 		sourceColumn: ganho_vs_ingenuo_pct
 
@@ -62,7 +62,7 @@ table metricas_modelos
 
 	column series_melhor_que_ingenuo_pct
 		dataType: double
-		lineageTag: 38a578a7-a50e-5ff5-a6e5-ad06a5be52e2
+		lineageTag: 2e848a23-f85c-4085-8b59-eb623b55917a
 		summarizeBy: none
 		sourceColumn: series_melhor_que_ingenuo_pct
 
@@ -70,7 +70,7 @@ table metricas_modelos
 
 	column data_execucao
 		dataType: string
-		lineageTag: 96450611-631f-5e9d-96e1-cb07f6746112
+		lineageTag: 5aa23674-4d3c-4577-a637-23a919527686
 		summarizeBy: none
 		sourceColumn: data_execucao
 
@@ -78,7 +78,7 @@ table metricas_modelos
 
 	column modelo_nome = SWITCH([modelo], "combinado", "GB + SARIMA", "gradient_boosting", "Gradient boosting", "random_forest", "Random forest", "ridge", "Ridge", "sarima", "SARIMA", "ets", "Holt-Winters", "ingenuo", "Repetir preço atual", "sazonal_ingenuo", "Repetir ano anterior", [modelo])
 		dataType: string
-		lineageTag: 016e5302-315b-52b4-84e9-f8cb54b2b3b9
+		lineageTag: e94c587d-f9cd-4497-8a4a-2b5dea70799e
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic

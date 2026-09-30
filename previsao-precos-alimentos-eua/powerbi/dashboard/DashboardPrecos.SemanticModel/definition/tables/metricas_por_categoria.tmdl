@@ -1,9 +1,9 @@
 table metricas_por_categoria
-	lineageTag: db21968d-4783-5437-9650-4759297fe1ea
+	lineageTag: 62fd4e58-00bd-4d2e-997e-a1328592c8c0
 
 	column categoria
 		dataType: string
-		lineageTag: 5f03dfea-8f83-52fa-a669-08ef83bb4e56
+		lineageTag: 3393f096-cb5e-4fa8-9efb-407d357a275e
 		summarizeBy: none
 		sourceColumn: categoria
 
@@ -11,7 +11,7 @@ table metricas_por_categoria
 
 	column modelo
 		dataType: string
-		lineageTag: 20e99cfc-debe-522e-ad70-a2031d52760b
+		lineageTag: bd1413cd-6bf8-4ab9-8b3c-26f566dd4703
 		summarizeBy: none
 		sourceColumn: modelo
 
@@ -19,7 +19,7 @@ table metricas_por_categoria
 
 	column mape
 		dataType: double
-		lineageTag: bfe1feaf-931b-5e1f-aed7-b649ad306da3
+		lineageTag: e6ed9f5e-13a2-4a9a-a6b2-efc8ac49d974
 		summarizeBy: none
 		sourceColumn: mape
 
@@ -27,7 +27,7 @@ table metricas_por_categoria
 
 	column wape
 		dataType: double
-		lineageTag: d33198fe-4021-51e3-819d-d2987a280f09
+		lineageTag: 641f7c18-7619-4838-a7ca-1634703e1e9c
 		summarizeBy: none
 		sourceColumn: wape
 
@@ -36,7 +36,7 @@ table metricas_por_categoria
 	column n
 		dataType: int64
 		formatString: 0
-		lineageTag: f2885890-4a61-5adc-a03d-178dbcd12731
+		lineageTag: 5a62da49-cc7a-46e5-8f5d-d8393be77a80
 		summarizeBy: none
 		sourceColumn: n
 
@@ -44,7 +44,7 @@ table metricas_por_categoria
 
 	column modelo_nome = SWITCH([modelo], "combinado", "GB + SARIMA", "gradient_boosting", "Gradient boosting", "random_forest", "Random forest", "ridge", "Ridge", "sarima", "SARIMA", "ets", "Holt-Winters", "ingenuo", "Repetir preço atual", "sazonal_ingenuo", "Repetir ano anterior", [modelo])
 		dataType: string
-		lineageTag: 1972899c-9529-5cc3-824c-af12417a5a96
+		lineageTag: e1a3e44e-b464-4e4e-91fd-9221c5223817
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic

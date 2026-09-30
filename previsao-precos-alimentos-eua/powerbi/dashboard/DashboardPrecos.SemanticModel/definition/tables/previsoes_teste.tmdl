@@ -1,10 +1,10 @@
 table previsoes_teste
-	lineageTag: be4a45b1-e7dc-5152-afbb-c035b915f5c4
+	lineageTag: 1d183806-0735-4efd-be9f-78d5c4b03a9e
 
 	column serie_id
 		dataType: string
 		isHidden
-		lineageTag: 5966c7da-ef5b-5cab-8dff-d89ed0aa9cdb
+		lineageTag: b1b229ce-2683-4684-a49d-c953819def1b
 		summarizeBy: none
 		sourceColumn: serie_id
 
@@ -12,7 +12,7 @@ table previsoes_teste
 
 	column item
 		dataType: string
-		lineageTag: a7a53e74-fc85-5f1d-a8b4-3156c19e2cc0
+		lineageTag: ff3ed32a-e9fa-4b4e-b41c-aaf33a679676
 		summarizeBy: none
 		sourceColumn: item
 
@@ -20,7 +20,7 @@ table previsoes_teste
 
 	column categoria
 		dataType: string
-		lineageTag: 313eeb36-9c23-5ac8-b667-77a6fb30e7d1
+		lineageTag: 540e7766-f278-47af-a99f-dad3c7b31cbc
 		summarizeBy: none
 		sourceColumn: categoria
 
@@ -29,7 +29,7 @@ table previsoes_teste
 	column data_base
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: cf661e67-f7bd-508b-9d13-5b0fd8fb642b
+		lineageTag: db9c4ee9-b9a0-4722-a73c-16f7571abdab
 		summarizeBy: none
 		sourceColumn: data_base
 
@@ -40,7 +40,7 @@ table previsoes_teste
 	column data_alvo
 		dataType: dateTime
 		formatString: dd/mm/yyyy
-		lineageTag: aa07a2bf-f746-5c47-a968-89dd08e9f584
+		lineageTag: cdf51e77-060d-4425-9159-22eb390aa074
 		summarizeBy: none
 		sourceColumn: data_alvo
 
@@ -50,7 +50,7 @@ table previsoes_teste
 
 	column preco_base
 		dataType: double
-		lineageTag: 1d204a8a-42ab-5385-9df1-01af8913ced7
+		lineageTag: 8a63c753-68cd-4a9f-8b77-34cce6968620
 		summarizeBy: none
 		sourceColumn: preco_base
 
@@ -58,7 +58,7 @@ table previsoes_teste
 
 	column preco_real
 		dataType: double
-		lineageTag: 7f66731e-260a-50ae-b8b1-fc4096e38eb4
+		lineageTag: 9ad38931-8f46-425f-ab71-0f240c86ec94
 		summarizeBy: none
 		sourceColumn: preco_real
 
@@ -66,7 +66,7 @@ table previsoes_teste
 
 	column modelo
 		dataType: string
-		lineageTag: 0c579122-d294-5ce8-90e6-6a0cae30bafd
+		lineageTag: 624fd31d-ab03-4437-8809-fe7e3e281d93
 		summarizeBy: none
 		sourceColumn: modelo
 
@@ -74,7 +74,7 @@ table previsoes_teste
 
 	column preco_previsto
 		dataType: double
-		lineageTag: 03ef2feb-9c10-5650-bb03-706148efe5e9
+		lineageTag: 0d6bd367-06c3-4e82-8294-070bc9d95e72
 		summarizeBy: none
 		sourceColumn: preco_previsto
 
@@ -82,7 +82,7 @@ table previsoes_teste
 
 	column erro
 		dataType: double
-		lineageTag: 642132bd-4bb1-58b4-babf-050cb4277ace
+		lineageTag: 3224c459-b13c-422c-8f9d-9d1acc4eba75
 		summarizeBy: none
 		sourceColumn: erro
 
@@ -90,7 +90,7 @@ table previsoes_teste
 
 	column erro_abs
 		dataType: double
-		lineageTag: a32053fd-a484-5c82-86be-2fc06223e87d
+		lineageTag: 56019007-d14e-4571-917a-3fd83e760fcd
 		summarizeBy: none
 		sourceColumn: erro_abs
 
@@ -98,7 +98,7 @@ table previsoes_teste
 
 	column erro_pct
 		dataType: double
-		lineageTag: 0e6fd7e2-a72f-5ab4-afdc-2320dbe9adf0
+		lineageTag: 999265f7-2baf-4dcf-8129-463baf3b374d
 		summarizeBy: none
 		sourceColumn: erro_pct
 
